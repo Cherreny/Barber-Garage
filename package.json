@@ -1,0 +1,16 @@
+{
+  "name": "Barber-Garage",
+  "version": "0.8.5",
+  "description": "Barber Garage website",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Cherreny/Barber-Garage.git"
+  },
+  "devDependencies": {
+    "http-server": "0.8.5"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node_modules/.bin/http-server"
+  }
+}

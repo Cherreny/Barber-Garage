@@ -13,6 +13,7 @@
 nbproject
 .idea
 Thumbs.db
+node_modules/
 
 # files needed for work
 _PSD/
