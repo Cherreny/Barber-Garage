@@ -1,8 +1,12 @@
 @import 'normalize';
 
+html, body {
+  height: 100%;
+}
+
 .container {
   font-family:"raleway regular";
-  height: 3000px;
+  height: 300%;
 }
 
 .nav-main {
