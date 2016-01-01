@@ -1,12 +1,15 @@
 @import 'normalize';
 
+$sectionNum: 3;
+$sectionHeight: 1 / $sectionNum * 100%;
+
 html, body {
   height: 100%;
 }
 
 .container {
   font-family:"raleway regular";
-  height: 300%;
+  height: $sectionNum * 100%;
 }
 
 .nav-main {
@@ -29,7 +32,7 @@ html, body {
 }
 
 main {
-  height: 1/3*100%;
+  height: $sectionHeight;
   background-image: url("../_PSD/elementy robocze/temporary_BG1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -37,7 +40,7 @@ main {
 }
 
 .barber {
-  height: 1/3*100%;
+  height: $sectionHeight;
   background-image: url("../_PSD/elementy robocze/pattern.png"), url("../_PSD/elementy robocze/temporary_BG2_patern.jpg");
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -45,7 +48,7 @@ main {
 }
 
 .garage {
-  height: 1/3*100%;
+  height: $sectionHeight;
   background-image: url("../_PSD/elementy robocze/temporary_BG3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
