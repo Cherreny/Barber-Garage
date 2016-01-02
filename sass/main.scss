@@ -76,12 +76,17 @@ html, body {
   height: $sectionHeight;
   div {
     text-align: left;
-    padding: 10% 60% 0 0;
+    padding: 8% 60% 0 0;
     font-weight: map-get($fontWeights, 'light');
     font-size: 18px;
     font-kerning: auto;
     line-height: 30px;
     color: #ffffff;
+
+    p {
+      margin: 60px 0 60px 0;
+    }
+
 
     a {
       font-weight: map-get($fontWeights, 'extraBold');
