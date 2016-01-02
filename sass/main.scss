@@ -33,10 +33,29 @@ html, body {
   .nav-list {
     float: right;
     list-style: none;
+    height: 30px;
+    vertical-align: middle;
 
     li {
       display: inline-block;
       color: #ffffff;
+
+      &.nav-lang {
+        margin: auto 5px 0 5px;
+      }
+
+      &.nav-media {
+        margin-right: 40px;
+      
+      }
+
+      &.nav-section {
+        margin-right: 65px;
+      }
+
+      &.nav-tel {
+        margin-right: 65px;
+      }
 
       a {
         color: #ffffff;
