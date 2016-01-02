@@ -15,42 +15,37 @@ html, body {
 .nav-main {
   font-size: 14px;
   text-transform: uppercase;
+
   .logo-wrapper {
     float: left;
   }
-  ul {
-    list-style: none;
+  .nav-list {
     float: right;
+    list-style: none;
+
     li {
       display: inline-block;
     }
   }
 }
 
-.logo {
-  float: left;
-}
-
-main {
-  height: $sectionHeight;
-  background-image: url("../_PSD/elementy robocze/temporary_BG1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+.section {
   background-position: center;
-}
-
-.barber {
-  height: $sectionHeight;
-  background-image: url("../_PSD/elementy robocze/pattern.png"), url("../_PSD/elementy robocze/temporary_BG2_patern.jpg");
-  background-size: auto, cover;
-  background-repeat: repeat, no-repeat;
-  background-position: left, center;
-}
-
-.garage {
-  height: $sectionHeight;
-  background-image: url("../_PSD/elementy robocze/temporary_BG3.jpg");
-  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-size: cover;
+  height: $sectionHeight;
+
+  &.intro {
+    background-image: url("/img/section1_bg.jpg");
+  }
+  &.barber {
+    background-image: url("/img/section2_pattern.png"),
+                      url("/img/section2_bg.jpg");
+    background-position: left, center;
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+  }
+  &.garage {
+    background-image: url("/img/section3_bg.jpg");
+  }
 }
