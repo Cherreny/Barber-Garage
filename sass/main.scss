@@ -15,6 +15,9 @@ html, body {
 .nav-main {
   font-size: 14px;
   text-transform: uppercase;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 
   .logo-wrapper {
     float: left;
@@ -25,6 +28,16 @@ html, body {
 
     li {
       display: inline-block;
+      color: #ffffff;
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+
+        &.active {
+          font-weight: 700;
+        }
+      }
     }
   }
 }
