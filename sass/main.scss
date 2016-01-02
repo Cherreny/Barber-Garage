@@ -36,6 +36,7 @@ html, body {
       height: 128px;
       transition: width 0.3s, height 0.3s;
       width: 190px;
+      padding: 20px;
     }
   }
 
@@ -52,6 +53,7 @@ html, body {
     float: right;
     height: 30px;
     list-style: none;
+    padding: 20px;
 
     li {
       color: #ffffff;
@@ -103,6 +105,7 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
   height: $sectionHeight;
+  padding: 20px;
   div {
     color: #ffffff;
     font-kerning: auto;
