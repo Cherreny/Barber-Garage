@@ -32,6 +32,10 @@ html, body {
   .logo-wrapper {
     float: left;
 
+    a {
+      display: block;
+    }
+
     .logo-barber-garage {
       height: 128px;
       transition: width 0.3s, height 0.3s;
