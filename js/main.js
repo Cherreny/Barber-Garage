@@ -25,7 +25,7 @@
   };
 
   function addClass(elem, className) {
-    var re = new RegExp(className, 'g');
+    var re = new RegExp(className + '$', 'g');
     var elemClassName = elem.className;
 
     if (re.test(elemClassName) === false) {
@@ -34,7 +34,7 @@
   }
 
   function removeClass(elem, className) {
-    var re = new RegExp(className, 'g');
+    var re = new RegExp(className + '$', 'g');
     var elemClassName = elem.className;
 
     if (re.test(elemClassName) === true) {
