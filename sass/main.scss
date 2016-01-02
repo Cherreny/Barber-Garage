@@ -52,11 +52,12 @@ html, body {
     float: right;
     height: 30px;
     list-style: none;
-    vertical-align: middle;
 
     li {
       color: #ffffff;
-      display: inline-block;
+      display: inline-table;
+      line-height: 30px;
+      vertical-align: middle;
 
       &.nav-lang {
         margin: auto 5px 0 5px;
@@ -64,6 +65,17 @@ html, body {
 
       &.nav-media {
         margin-right: 40px;
+
+        a {
+          height: 21px;
+          width: 21px;
+          display: block;
+
+          img {
+            display: block;
+            margin: 0 auto;
+          }
+        }
       }
 
       &.nav-section {
@@ -78,7 +90,7 @@ html, body {
         color: #ffffff;
         text-decoration: none;
 
-        &.active {
+        &:hover, &.active {
           font-weight: map-get($fontWeights, 'extraBold');
         }
       }
