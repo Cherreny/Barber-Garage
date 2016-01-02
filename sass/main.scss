@@ -46,7 +46,7 @@ html, body {
 
       &.nav-media {
         margin-right: 40px;
-      
+
       }
 
       &.nav-section {
@@ -74,6 +74,35 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
   height: $sectionHeight;
+  div {
+    text-align: left;
+    padding: 10% 60% 0 0;
+    font-weight: map-get($fontWeights, 'light');
+    font-size: 18px;
+    font-kerning: auto;
+    line-height: 30px;
+    color: #ffffff;
+
+    a {
+      font-weight: map-get($fontWeights, 'extraBold');
+      text-decoration: none;
+      color: #ffffff;
+
+      &.res {
+        border: solid;
+        border-color: #ffffff;
+        padding: 7px 7px 7px 7px;
+        margin-right: 70px;
+
+
+        &:hover {
+          border-color: #ffffff;
+          background-color: #ffffff;
+          color: #121212;
+        }
+      }
+    }
+  }
 
   &.intro {
     background-image: url("/img/section1_bg.jpg");
