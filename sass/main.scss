@@ -22,9 +22,9 @@ html, body {
 
 .nav-main {
   font-size: 14px;
-  text-transform: uppercase;
   overflow: hidden;
   position: fixed;
+  text-transform: uppercase;
   width: 100%;
 
   .logo-wrapper {
@@ -32,13 +32,13 @@ html, body {
   }
   .nav-list {
     float: right;
-    list-style: none;
     height: 30px;
+    list-style: none;
     vertical-align: middle;
 
     li {
-      display: inline-block;
       color: #ffffff;
+      display: inline-block;
 
       &.nav-lang {
         margin: auto 5px 0 5px;
@@ -46,7 +46,6 @@ html, body {
 
       &.nav-media {
         margin-right: 40px;
-
       }
 
       &.nav-section {
@@ -75,13 +74,13 @@ html, body {
   background-size: cover;
   height: $sectionHeight;
   div {
-    text-align: left;
-    padding: 8% 60% 0 0;
-    font-weight: map-get($fontWeights, 'light');
-    font-size: 18px;
-    font-kerning: auto;
-    line-height: 30px;
     color: #ffffff;
+    font-kerning: auto;
+    font-size: 18px;
+    font-weight: map-get($fontWeights, 'light');
+    line-height: 30px;
+    padding: 8% 60% 0 0;
+    text-align: left;
 
     p {
       margin: 60px 0 60px 0;
@@ -89,20 +88,19 @@ html, body {
 
 
     a {
+      color: #ffffff;
       font-weight: map-get($fontWeights, 'extraBold');
       text-decoration: none;
-      color: #ffffff;
 
       &.res {
         border: solid;
         border-color: #ffffff;
-        padding: 7px 7px 7px 7px;
         margin-right: 70px;
-
+        padding: 7px 7px 7px 7px;
 
         &:hover {
-          border-color: #ffffff;
           background-color: #ffffff;
+          border-color: #ffffff;
           color: #121212;
         }
       }
