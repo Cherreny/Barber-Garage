@@ -29,13 +29,25 @@ html, body {
   text-transform: uppercase;
   width: 100%;
 
-  &.nav-small {
-    background-color: #121212;
-  }
-
   .logo-wrapper {
     float: left;
+
+    .logo-barber-garage {
+      height: 128px;
+      transition: all 0.3s;
+      width: 190px;
+    }
   }
+
+  &.nav-small {
+    background-color: #121212;
+
+    .logo-barber-garage {
+      height: 53px;
+      width: 79px;
+    }
+  }
+
   .nav-list {
     float: right;
     height: 30px;
