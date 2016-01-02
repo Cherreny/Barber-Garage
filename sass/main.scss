@@ -3,12 +3,20 @@
 $sectionNum: 3;
 $sectionHeight: 1 / $sectionNum * 100%;
 
+$fontWeights: (
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semiBold: 600,
+  extraBold: 800
+);
+
 html, body {
   height: 100%;
 }
 
 .container {
-  font-family:"raleway regular";
+  font-family: 'Raleway', sans-serif;
   height: $sectionNum * 100%;
 }
 
@@ -35,7 +43,7 @@ html, body {
         text-decoration: none;
 
         &.active {
-          font-weight: 700;
+          font-weight: map-get($fontWeights, 'extraBold');
         }
       }
     }
