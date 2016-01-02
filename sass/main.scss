@@ -34,28 +34,27 @@ html, body {
     float: right;
     list-style: none;
     height: 30px;
+    vertical-align: middle;
 
     li {
       display: inline-block;
       color: #ffffff;
-      text-align: center;
-      vertical-align: middle;
-      height: 30px;
 
       &.nav-lang {
-        margin: 0 5px 0 5px;
+        margin: auto 5px 0 5px;
       }
 
       &.nav-media {
-        margin: 0 40px 0 0;
+        margin-right: 40px;
+      
       }
 
       &.nav-section {
-        margin: 0 65px 0 0;
+        margin-right: 65px;
       }
 
       &.nav-tel {
-        margin: 0 65px 0 0;
+        margin-right: 65px;
       }
 
       a {
