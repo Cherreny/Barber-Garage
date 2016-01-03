@@ -166,19 +166,30 @@ footer {
 
   .map-wrapper {
     float: left;
-    width: 300px;
     background-color: #ffffff;
+    width: 50%;
+    height: 100%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      background-color: grey;
+    }
   }
 
   .contact-wrapper {
-    float: right;
+    vertical-align: middle;
+    left:50%;
 
     .contact-list{
       list-style: none;
+      vertical-align:middle;
+      text-align: center;
 
       .bargar-wrapper {
         display: inline-block;
         margin: 0 40px 0 40px;
+        text-align: justify;
 
         .bargar-list {
           list-style: none;
