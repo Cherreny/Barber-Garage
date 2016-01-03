@@ -21,6 +21,8 @@ html, body {
 }
 
 .nav-main {
+  background-color: transparent;
+  transition: background-color 0.3s;
   font-size: 14px;
   overflow: hidden;
   position: fixed;
@@ -29,16 +31,40 @@ html, body {
 
   .logo-wrapper {
     float: left;
+
+    a {
+      display: block;
+    }
+
+    .logo-barber-garage {
+      height: 128px;
+      transition: width 0.3s, height 0.3s;
+      width: 190px;
+      padding: 20px;
+    }
   }
+
+  &.nav-small {
+    background-color: #121212;
+
+    .logo-barber-garage {
+      height: 53px;
+      width: 79px;
+      padding: 10px 20px 10px 20px;
+    }
+  }
+
   .nav-list {
     float: right;
     height: 30px;
     list-style: none;
-    vertical-align: middle;
+    padding: 20px;
 
     li {
       color: #ffffff;
-      display: inline-block;
+      display: inline-table;
+      line-height: 30px;
+      vertical-align: middle;
 
       &.nav-lang {
         margin: auto 5px 0 5px;
@@ -46,6 +72,17 @@ html, body {
 
       &.nav-media {
         margin-right: 40px;
+
+        a {
+          height: 21px;
+          width: 21px;
+          display: block;
+
+          img {
+            display: block;
+            margin: 0 auto;
+          }
+        }
       }
 
       &.nav-section {
@@ -60,7 +97,7 @@ html, body {
         color: #ffffff;
         text-decoration: none;
 
-        &.active {
+        &:hover, &.active {
           font-weight: map-get($fontWeights, 'extraBold');
         }
       }
@@ -73,6 +110,7 @@ html, body {
   background-repeat: no-repeat;
   background-size: cover;
   height: $sectionHeight;
+  padding: 20px;
   div {
     color: #ffffff;
     font-kerning: auto;
