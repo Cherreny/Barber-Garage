@@ -14,44 +14,14 @@
   	};
   };
 
-  function getElementByClassName(className) {
-    if (document.getElementsByClassName) {
-      return document.getElementsByClassName(className)[0];
-    }
-
-    if (document.querySelectorAll) {
-      return document.querySelectorAll((' ' + className).replace(/ +/g, '.'))[0];
-    }
-  };
-
-  function addClass(elem, className) {
-    var re = new RegExp(className + '$', 'g');
-    var elemClassName = elem.className;
-
-    if (re.test(elemClassName) === false) {
-      elem.className = elemClassName + ' ' + className;
-    }
-  }
-
-  function removeClass(elem, className) {
-    var re = new RegExp(className + '$', 'g');
-    var elemClassName = elem.className;
-
-    if (re.test(elemClassName) === true) {
-      elemClassName = elemClassName.replace(className, '');
-      // remove not need one space left after replacing `className`
-      elem.className = elemClassName.slice(0, elemClassName.length - 1);
-    }
-  }
-
   var SCROLL_TOP_LIMIT = 25;
-  var navMain = getElementByClassName('nav-main');
+  var navMain = document.getElementsByClassName('nav-main')[0];
 
   var scrollHandler = debounce(function() {
     if (window.scrollY > SCROLL_TOP_LIMIT) {
-      addClass.call(this, navMain, 'nav-small')
+      navMain.classList.add('nav-small');
     } else {
-      removeClass.call(this, navMain, 'nav-small')
+      navMain.classList.remove('nav-small');
     }
   }, 250);
 
