@@ -180,15 +180,15 @@ footer {
   .contact-wrapper {
     vertical-align: middle;
     left:50%;
+    height: 100%;
 
     .contact-list{
       list-style: none;
-      vertical-align:middle;
       text-align: center;
 
       .bargar-wrapper {
         display: inline-block;
-        margin: 0 40px 0 40px;
+        margin: 10px 40px 0 40px;
         text-align: justify;
 
         .bargar-list {
