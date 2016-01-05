@@ -1,4 +1,3 @@
-var map;
 function initMap() {
   var styleArray = [
     {
@@ -167,9 +166,23 @@ function initMap() {
       ]
     }
   ];
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+
+  var barberGarageLatLng = {lat: 52.233850, lng: 20.987273};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: barberGarageLatLng,
     styles: styleArray,
-    zoom: 8
+    zoom: 15
   });
+
+  var markerImg = {
+    barber: '/img/marker_barber.png',
+    garage: '/img/marker_garage.png'
+  };
+
+  var marker = new google.maps.Marker({
+    position: barberGarageLatLng,
+    map: map,
+    icon: markerImg.barber
+  })
 }
