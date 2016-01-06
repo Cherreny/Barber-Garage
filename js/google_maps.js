@@ -184,5 +184,5 @@ function initMap() {
     position: barberGarageLatLng,
     map: map,
     icon: markerImg.barber
-  })
+  });
 }

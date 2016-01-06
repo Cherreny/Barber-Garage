@@ -6,13 +6,13 @@
       function laterFn() {
         timeout = null;
         if (!immediate) func.apply(context, args);
-      };
+      }
       var callNow = immediate && !timeout;
       clearTimeout(timeout);
       timeout = setTimeout(laterFn, wait);
       if (callNow) func.apply(context, args);
     };
-  };
+  }
 
   var SCROLL_TOP_LIMIT = 25;
   var navMain = document.getElementsByClassName('nav-main')[0];
