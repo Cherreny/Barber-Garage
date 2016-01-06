@@ -52,9 +52,9 @@
         margin-right: 40px;
 
         a {
+          display: block;
           height: 21px;
           width: 21px;
-          display: block;
 
           img {
             display: block;
@@ -63,10 +63,7 @@
         }
       }
 
-      &.nav-section {
-        margin-right: 65px;
-      }
-
+      &.nav-section,
       &.nav-tel {
         margin-right: 65px;
       }
@@ -75,8 +72,9 @@
         color: #ffffff;
         text-decoration: none;
 
-        &:hover, &.active {
-          font-weight: map-get($fontWeights, 'extraBold');
+        &:hover,
+        &.active {
+          @include fontWeight('extraBold');
         }
       }
     }

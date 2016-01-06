@@ -5,11 +5,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: $sectionHeight;
+
   div {
+    @include fontWeight('light');
     color: #ffffff;
     font-kerning: auto;
     font-size: 18px;
-    font-weight: map-get($fontWeights, 'light');
     line-height: 30px;
     padding: 8% 60% 0 20px;
     text-align: left;
@@ -19,8 +20,8 @@
     }
 
     a {
+      @include fontWeight('extraBold');
       color: #ffffff;
-      font-weight: map-get($fontWeights, 'extraBold');
       text-decoration: none;
 
       &.button-reservation {

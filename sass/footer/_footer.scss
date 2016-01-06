@@ -13,13 +13,14 @@ footer {
 
   .contact-wrapper {
     vertical-align: middle;
-    left:50%;
+    left: 50%;
     height: 100%;
 
     .contact-list{
       list-style: none;
       text-align: center;
 
+      /* @TODO: change `bargar` class name */
       .bargar-wrapper {
         display: inline-block;
         margin: 10px 40px 0 40px;
@@ -29,17 +30,18 @@ footer {
           list-style: none;
           font-size: 14px;
           color: #ffffff;
-          font-weight: map-get($fontWeights, 'medium');
+          @include fontWeight('medium');
 
           li {
             position: relative;
             margin: 10px 0 10px 40px;
           }
           .adress-list {
-            font-weight: map-get($fontWeights, 'light');
+            @include fontWeight('light');
           }
           .tel-list {
-            font-weight: map-get($fontWeights, 'semiBold');
+            @include fontWeight('semiBold');
+
             &:hover {
               color: gold;
             }
