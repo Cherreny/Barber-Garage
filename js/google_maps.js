@@ -167,22 +167,30 @@ function initMap() {
     }
   ];
 
-  var barberGarageLatLng = {lat: 52.233850, lng: 20.987273};
-
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: barberGarageLatLng,
+    center: {lat: 52.234541, lng: 20.981844},
     styles: styleArray,
     zoom: 15
   });
 
-  var markerImg = {
-    barber: '/img/marker_barber.png',
-    garage: '/img/marker_garage.png'
-  };
+  var markers = [
+    {
+      name: 'barber',
+      imgSrc: '/img/marker_barber.png',
+      latLng: {lat: 52.233850, lng: 20.987273}
+    },
+    {
+      name: 'garage',
+      imgSrc: '/img/marker_garage.png',
+      latLng: {lat: 52.232497, lng: 20.977438}
+    }
+  ];
 
-  var marker = new google.maps.Marker({
-    position: barberGarageLatLng,
-    map: map,
-    icon: markerImg.barber
+  markers.forEach(function (marker) {
+    new google.maps.Marker({
+      position: marker.latLng,
+      map: map,
+      icon: marker.imgSrc
+    });
   });
 }
