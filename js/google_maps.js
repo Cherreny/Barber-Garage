@@ -168,23 +168,24 @@ function initMap() {
   ];
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 52.234541, lng: 20.981844},
-    styles: styleArray,
-    zoom: 15
+    center: new google.maps.LatLng(52.234541, 20.981844),
+    styles: styleArray
   });
 
   var markers = [
     {
       name: 'barber',
       imgSrc: '/img/marker_barber.png',
-      latLng: {lat: 52.233850, lng: 20.987273}
+      latLng: new google.maps.LatLng(52.233850, 20.987273)
     },
     {
       name: 'garage',
       imgSrc: '/img/marker_garage.png',
-      latLng: {lat: 52.232497, lng: 20.977438}
+      latLng: new google.maps.LatLng(52.232497, 20.977438)
     }
   ];
+
+  var mapBounds = new google.maps.LatLngBounds();
 
   markers.forEach(function (marker) {
     new google.maps.Marker({
@@ -192,5 +193,15 @@ function initMap() {
       map: map,
       icon: marker.imgSrc
     });
+
+    mapBounds.extend(marker.latLng);
+  });
+
+  map.fitBounds(mapBounds);
+
+  // `fitBounds` sets map zoom in highest value possible so we want to zoom out a little bit
+  var listener = google.maps.event.addListener(map, "idle", function() {
+    map.setZoom(15);
+    google.maps.event.removeListener(listener);
   });
 }
