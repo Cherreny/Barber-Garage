@@ -8,7 +8,7 @@ function initMap() {
           "saturation": 36
         },
         {
-          "color": "#000000"
+          "color": "#ffffff"
         },
         {
           "lightness": 40
@@ -26,7 +26,7 @@ function initMap() {
           "color": "#000000"
         },
         {
-          "lightness": 16
+          "lightness": 30
         }
       ]
     },
@@ -56,7 +56,7 @@ function initMap() {
       "elementType": "geometry.stroke",
       "stylers": [
         {
-          "color": "#000000"
+          "color": "#3D2B1F"
         },
         {
           "lightness": 17
@@ -122,10 +122,13 @@ function initMap() {
       "elementType": "geometry",
       "stylers": [
         {
-          "color": "#000000"
+          "color": "#73542F"
         },
         {
-          "lightness": 18
+          "lightness": 25
+        },
+        {
+          "weight": 1
         }
       ]
     },
@@ -137,7 +140,7 @@ function initMap() {
           "color": "#000000"
         },
         {
-          "lightness": 16
+          "lightness": 17
         }
       ]
     },
