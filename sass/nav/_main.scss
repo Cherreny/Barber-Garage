@@ -1,6 +1,7 @@
 .nav-main {
+  @include zindex('navMain');
   background-color: transparent;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
   font-size: 14px;
   overflow: hidden;
   position: fixed;
@@ -35,7 +36,6 @@
   .nav-list {
     float: right;
     height: 30px;
-    list-style: none;
     padding: 20px;
 
     li {
