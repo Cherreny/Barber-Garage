@@ -1,0 +1,8 @@
+html, body {
+  height: 100%;
+}
+
+.container {
+  font-family: $fontFamily;
+  height: $sectionNum * 100%;
+}

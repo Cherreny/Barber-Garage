@@ -1,0 +1,55 @@
+.section {
+  $sectionHeight: 1 / $sectionNum * 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: $sectionHeight;
+
+  div {
+    @include fontWeight('light');
+    color: #ffffff;
+    font-kerning: auto;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 8% 60% 0 20px;
+    text-align: left;
+
+    p {
+      margin: 60px 0 60px 0;
+    }
+
+    a {
+      @include fontWeight('extraBold');
+      color: #ffffff;
+      text-decoration: none;
+
+      &.button-reservation {
+        border: solid;
+        border-color: #ffffff;
+        margin-right: 70px;
+        padding: 7px 7px 7px 7px;
+
+        &:hover {
+          background-color: #ffffff;
+          border-color: #ffffff;
+          color: #121212;
+        }
+      }
+    }
+  }
+
+  &.intro {
+    background-image: url("/img/section1_bg.jpg");
+  }
+  &.barber {
+    background-image: url("/img/section2_pattern.png"),
+                      url("/img/section2_bg.jpg");
+    background-position: left, center;
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+  }
+  &.garage {
+    background-image: url("/img/section3_bg.jpg");
+  }
+}
