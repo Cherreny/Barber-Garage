@@ -1,0 +1,57 @@
+.nav-homepage {
+  $navImgSrcPrefix: 'sidemenu_';
+  $navHomepageLinksNames: (
+    'home',
+    'barber',
+    'garage',
+    'contact'
+  );
+
+  @include zindex('navHomepage');
+  height: 100%;
+  position: fixed;
+  right: 20px;
+  top: 0;
+  transform-style: preserve-3d;
+
+  .nav-list {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    li {
+      margin-top: 20px;
+
+      &:first-of-type {
+        margin-top: 0px;
+      }
+
+      a {
+        background-repeat: no-repeat;
+        background-position: center right;
+        display: block;
+        height: 40px;
+        width: 115px;
+        opacity: 0.5;
+        transition: opacity 0.2s;
+
+        @each $name in $navHomepageLinksNames {
+          $linkBackgroundSrc: '/img/' + $navImgSrcPrefix + $name + '.png';
+          &.link-#{$name} {
+            background-image: url($linkBackgroundSrc);
+          }
+        }
+
+        /* hide the text */
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+
+        &:hover,
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
