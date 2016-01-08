@@ -4,7 +4,7 @@
       elem.addEventListener(method, callback, false);
     } else {
       // IE8 polyfill
-      elem.attachEvent(method, callback, false);
+      elem.attachEvent(method, callback);
     }
   }
 
@@ -34,7 +34,7 @@
     }
   }, 250);
 
-  window.addEventListener('scroll', scrollHandler);
+  addEvent(window, 'scroll', scrollHandler);
 
   smoothScroll.init({
     selector: '[data-scroll]', // Selector for links (must be a valid CSS selector)
@@ -46,19 +46,19 @@
   });
 
 
-  var homepageNavLinks = document.getElementsByClassName('nav-home__link');
-  for (var i = 0; i < homepageNavLinks.length; i++) {
-    addEvent.call(null, homepageNavLinks[i], "click", setActive);
+  var homepageNavLinks = Array.prototype.slice.call(document.getElementsByClassName('nav-home__link'));
+  homepageNavLinks.forEach(function (elem) {
+    addEvent(elem, 'click', setActive);
+  });
+
+  function removeClass(className) {
+    homepageNavLinks.forEach(function (elem) {
+      elem.classList.remove(className);
+    });
   }
 
-  function setActive() {
-    removeActiveClass();
-    this.classList.add('active');
-  }
-
-  function removeActiveClass() {
-    for (var i = 0; i < homepageNavLinks.length; i++) {
-      homepageNavLinks[i].classList.remove('active');
-    }
+  function addClass(event) {
+    removeActiveClass('active');
+    event.target.classList.add('active');
   }
 })();
