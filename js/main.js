@@ -57,8 +57,8 @@
     });
   }
 
-  function addClass(event) {
-    removeActiveClass('active');
+  function setActive(event) {
+    removeClass('active');
     event.target.classList.add('active');
   }
 })();
