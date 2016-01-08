@@ -1,4 +1,13 @@
 (function () {
+  function addEvent(elem, method, callback) {
+    if (elem.addEventListener) {
+      elem.addEventListener(method, callback, false);
+    } else {
+      // IE8 polyfill
+      elem.attachEvent(method, callback, false);
+    }
+  }
+
   function debounce(func, wait, immediate) {
     var timeout = null;
     return function debounceInner() {
@@ -35,4 +44,21 @@
     updateURL: true, // Boolean. Whether or not to update the URL with the anchor hash on scroll
     offset: 0 // Integer. How far to offset the scrolling anchor location in pixels
   });
+
+
+  var homepageNavLinks = document.getElementsByClassName('nav-home__link');
+  for (var i = 0; i < homepageNavLinks.length; i++) {
+    addEvent.call(null, homepageNavLinks[i], "click", setActive);
+  }
+
+  function setActive() {
+    removeActiveClass();
+    this.classList.add('active');
+  }
+
+  function removeActiveClass() {
+    for (var i = 0; i < homepageNavLinks.length; i++) {
+      homepageNavLinks[i].classList.remove('active');
+    }
+  }
 })();
