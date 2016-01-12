@@ -3,32 +3,51 @@ footer {
   background-color: #121212;
   font-family: 'Raleway', sans-serif;
 
+
+  ul {
+    list-style: none;
+  }
+
   .map-wrapper {
     float: left;
     background-color: #ffffff;
     width: 50%;
     height: 100%;
+
+  }
+
+  .wrapper {
+    padding-top: 20px;
+    height: 90%;
+
+
+  .logo-wrapper {
+    height: 100%;
+    width: 14%;
+    float: left;
+
+
+    ul {
+      height: 100%;
+      padding-left: 25px;
+
+
+      li {
+        height: 50%;
+      }
+    }
   }
 
   .contact-wrapper {
     vertical-align: middle;
-    left: 50%;
     height: 100%;
-    padding-right: 60px;
+    float: left;
+    width: 25%;
 
-    .contact-list{
-      list-style: none;
-      text-align: center;
 
-      /* @TODO: change `bargar` class name */
-      .bargar-wrapper {
-        display: inline-block;
-        margin: 0 40px 0 0;
-        text-align: left;
 
         .bargar-list {
           @include fontWeight('medium');
-          list-style: none;
           font-size: 14px;
           color: #ffffff;
           padding: 7px 5px 5px 5px;
@@ -50,5 +69,4 @@ footer {
         }
       }
     }
-  }
 }
