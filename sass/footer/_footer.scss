@@ -2,6 +2,7 @@ footer {
   height: 50%;
   background-color: #121212;
   font-family: 'Raleway', sans-serif;
+  padding: 20px;
 
 
   ul {
@@ -16,15 +17,13 @@ footer {
 
   }
 
-  .wrapper {
-    padding-top: 20px;
-    height: 90%;
 
 
   .logo-wrapper {
     height: 100%;
     width: 14%;
     float: left;
+    padding-top: 20px;
 
 
     ul {
@@ -43,6 +42,7 @@ footer {
     height: 100%;
     float: left;
     width: 25%;
+    padding-top: 20px;
 
 
 
@@ -69,4 +69,3 @@ footer {
         }
       }
     }
-}
