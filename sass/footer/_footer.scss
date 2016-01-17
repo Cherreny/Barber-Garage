@@ -1,8 +1,10 @@
 footer {
-  height: 50%;
+  height: 60%;
   background-color: #121212;
   font-family: 'Raleway', sans-serif;
-  padding: 3%;
+
+
+
 
 
   ul {
@@ -13,8 +15,8 @@ footer {
     float: left;
     background-color: #ffffff;
     width: 50%;
-    height: 124%;
-    margin: -3%;
+    height: 100%;
+
 
   }
 
@@ -22,14 +24,16 @@ footer {
 
   .logo-wrapper {
     height: 100%;
-    width: 22%;
+    width: 20%;
     float: left;
+    padding-top: 20px;
+    box-sizing: border-box;
 
 
 
     ul {
       height: 100%;
-      padding-left: 35%;
+      padding-left: 25%;
 
 
       li {
@@ -44,7 +48,9 @@ footer {
     float: left;
     width: 25%;
     letter-spacing: 40;   /*40? but what? Look at Pan Kulka's description*/
-
+    padding-top: 20px;
+    padding-left: 10px;
+    box-sizing: border-box;
 
 
         .bargar-list {
