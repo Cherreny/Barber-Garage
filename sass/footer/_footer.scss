@@ -17,19 +17,14 @@ footer {
   .logo-wrapper {
     box-sizing: border-box;
     float: left;
-    padding:35px 35px 35px 0;
+    padding:35px 35px 0 35px;
 
     img{
       width: 105px;
     }
 
-    ul {
-      height: 100%;
-      padding-left: 35px;
-
-      li {
-        height: 165px;
-      }
+    li {
+      height: 180px;
     }
   }
 
@@ -49,7 +44,7 @@ footer {
 
           li {
             position: relative;
-            margin: 7px 0 7px 35px;
+            margin:10px 0 10px 35px;
           }
           .adress-list {
             @include fontWeight('light');
