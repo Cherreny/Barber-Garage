@@ -1,52 +1,61 @@
 footer {
-  height: 50%;
   background-color: #121212;
   font-family: 'Raleway', sans-serif;
+  overflow: hidden;
+
+  ul {
+    list-style: none;
+  }
 
   .map-wrapper {
-    float: left;
     background-color: #ffffff;
+    float: left;
+    height: 400px;
     width: 50%;
-    height: 100%;
+  }
+
+  .logo-wrapper {
+    box-sizing: border-box;
+    float: left;
+    padding: 35px 35px 0 35px;
+
+    img {
+      width: 105px;
+    }
+
+    li {
+      height: 180px;
+    }
   }
 
   .contact-wrapper {
-    vertical-align: middle;
-    left: 50%;
+    box-sizing: border-box;
+    float: left;
     height: 100%;
-    padding-right: 60px;
+    letter-spacing: 0.04em;
+    padding-top: 35px;
+    width: 30%;
+    vertical-align: middle;
 
-    .contact-list{
-      list-style: none;
-      text-align: center;
+    .bargar-list {
+      @include fontWeight('medium');
+      font-size: 14px;
+      color: #ffffff;
 
-      /* @TODO: change `bargar` class name */
-      .bargar-wrapper {
-        display: inline-block;
-        margin: 0 40px 0 0;
-        text-align: left;
+      li {
+        position: relative;
+        margin:10px 0 10px 35px;
+      }
 
-        .bargar-list {
-          @include fontWeight('medium');
-          list-style: none;
-          font-size: 14px;
-          color: #ffffff;
-          padding: 7px 5px 5px 5px;
+      .adress-list {
+        @include fontWeight('light');
+      }
 
-          li {
-            position: relative;
-            margin: 7px 0 7px 40px;
-          }
-          .adress-list {
-            @include fontWeight('light');
-          }
-          .tel-list {
-            @include fontWeight('semiBold');
+      .tel-list {
+        @include fontWeight('semiBold');
 
-            &:hover {
-              color: gold;
-            }
-          }
+        &:hover {
+          color: gold;
         }
       }
     }
