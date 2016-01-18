@@ -17,9 +17,9 @@ footer {
   .logo-wrapper {
     box-sizing: border-box;
     float: left;
-    padding:35px 35px 0 35px;
+    padding: 35px 35px 0 35px;
 
-    img{
+    img {
       width: 105px;
     }
 
@@ -37,10 +37,10 @@ footer {
     width: 30%;
     vertical-align: middle;
 
-          .bargar-list {
-          @include fontWeight('medium');
-          font-size: 14px;
-          color: #ffffff;
+        .bargar-list {
+        @include fontWeight('medium');
+        font-size: 14px;
+        color: #ffffff;
 
           li {
             position: relative;
