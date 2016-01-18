@@ -37,25 +37,25 @@ footer {
     width: 30%;
     vertical-align: middle;
 
-        .bargar-list {
-        @include fontWeight('medium');
-        font-size: 14px;
-        color: #ffffff;
+      .bargar-list {
+      @include fontWeight('medium');
+      font-size: 14px;
+      color: #ffffff;
 
-          li {
-            position: relative;
-            margin:10px 0 10px 35px;
-          }
-          .adress-list {
-            @include fontWeight('light');
-          }
-          .tel-list {
-            @include fontWeight('semiBold');
+        li {
+          position: relative;
+          margin:10px 0 10px 35px;
+        }
+        .adress-list {
+          @include fontWeight('light');
+        }
+        .tel-list {
+          @include fontWeight('semiBold');
 
-            &:hover {
-              color: gold;
-            }
+          &:hover {
+            color: gold;
           }
         }
-      }
     }
+  }
+}
