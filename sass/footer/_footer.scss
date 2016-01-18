@@ -1,67 +1,55 @@
 footer {
-  height: 60%;
   background-color: #121212;
   font-family: 'Raleway', sans-serif;
-
-
-
-
+  overflow: hidden;
 
   ul {
     list-style: none;
   }
 
   .map-wrapper {
-    float: left;
     background-color: #ffffff;
+    float: left;
+    height: 400px;
     width: 50%;
-    height: 100%;
-
-
   }
 
-
-
   .logo-wrapper {
-    height: 100%;
-    width: 20%;
-    float: left;
-    padding-top: 20px;
     box-sizing: border-box;
+    float: left;
+    padding:35px 35px 35px 0;
 
-
+    img{
+      width: 105px;
+    }
 
     ul {
       height: 100%;
-      padding-left: 25%;
-
+      padding-left: 35px;
 
       li {
-        height: 50%;
+        height: 165px;
       }
     }
   }
 
   .contact-wrapper {
-    vertical-align: middle;
-    height: 100%;
-    float: left;
-    width: 25%;
-    letter-spacing: 40;   /*40? but what? Look at Pan Kulka's description*/
-    padding-top: 20px;
-    padding-left: 10px;
     box-sizing: border-box;
+    float: left;
+    height: 100%;
+    letter-spacing: 40;   /*40? but what? Look at Pan Kulka's description*/
+    padding-top: 35px;
+    width: 30%;
+    vertical-align: middle;
 
-
-        .bargar-list {
+          .bargar-list {
           @include fontWeight('medium');
           font-size: 14px;
           color: #ffffff;
-          padding: 7px 5px 5px 5px;
 
           li {
             position: relative;
-            margin: 7px 0 7px 40px;
+            margin: 7px 0 7px 35px;
           }
           .adress-list {
             @include fontWeight('light');
