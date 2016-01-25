@@ -8,30 +8,30 @@
 
 @mixin extrasmall {
   @media #{$extrasmall} {
-    @content:
+    @content
   }
-}
+};
 
 @mixin small {
   @media #{$small} {
-    @content:
+    @content
   }
-}
+};
 
 @mixin normal {
   @media #{$normal} {
-    @content:
+    @content
   }
-}
+};
 
 @mixin large {
   @media #{$large} {
-    @content:
+    @content
   }
-}
+};
 
 @mixin extralarge {
-  @media #{$extralerge} {
-    @content:
+  @media #{$extralarge} {
+    @content
   }
-}
+};
