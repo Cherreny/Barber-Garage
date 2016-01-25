@@ -5,3 +5,33 @@
 @mixin zindex($zindex) {
   z-index: map-get($zindexes, $zindex);
 }
+
+@mixin extrasmall {
+  @media #{$extrasmall} {
+    @content:
+  }
+}
+
+@mixin small {
+  @media #{$small} {
+    @content:
+  }
+}
+
+@mixin normal {
+  @media #{$normal} {
+    @content:
+  }
+}
+
+@mixin large {
+  @media #{$large} {
+    @content:
+  }
+}
+
+@mixin extralarge {
+  @media #{$extralerge} {
+    @content:
+  }
+}

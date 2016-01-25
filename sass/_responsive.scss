@@ -1,0 +1,13 @@
+$container-size-extrasmall: 480px;
+$container-size-small: 750px;
+$container-size-normal: 930px;
+$container-size-large: 1600px;
+$container-size-extralarge: 1900px;
+
+
+
+$extrasmall: "screen and (max-width: 480px;)";
+$small: "screen and (max-width: 750px;)";
+$normal: "screen and (max-width: 930px;)";
+$large: "screen and (max-width: 1600px;)";
+$extralarge: "screen and (min width #{$container-size-large +1 })";
