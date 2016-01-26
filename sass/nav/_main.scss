@@ -21,7 +21,7 @@
       width: 190px;
       padding: 20px;
 
-      @include normal() {
+      @include normal-down() {
         height: 100px;
         width: 148px;
       };

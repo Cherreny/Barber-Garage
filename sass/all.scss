@@ -1,6 +1,7 @@
 @import 'normalize';
 
-@import 'constants';
+@import 'responsive';
+@import 'variables';
 @import 'common';
 
 @import 'mixins';
@@ -8,5 +9,3 @@
 @import 'nav/navs';
 @import 'section/section';
 @import 'footer/footer';
-
-@import 'responsive';

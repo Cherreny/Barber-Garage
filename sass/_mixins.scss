@@ -6,32 +6,68 @@
   z-index: map-get($zindexes, $zindex);
 }
 
-@mixin extrasmall {
-  @media #{$extrasmall} {
+@mixin extrasmall-down {
+  @media #{$extrasmall-down} {
     @content
   }
 };
 
-@mixin small {
-  @media #{$small} {
+@mixin small-down {
+  @media #{$small-down} {
     @content
   }
 };
 
-@mixin normal {
-  @media #{$normal} {
+@mixin normal-down {
+  @media #{$normal-down} {
     @content
   }
 };
 
-@mixin large {
-  @media #{$large} {
+@mixin large-down {
+  @media #{$large-down} {
     @content
   }
 };
 
-@mixin extralarge {
-  @media #{$extralarge} {
+@mixin extralarge-down {
+  @media #{$extralarge-down} {
+    @content
+  }
+};
+
+@mixin extrasmall-up {
+  @media #{$extrasmall-up} {
+    @content
+  }
+};
+
+@mixin extrasmall-up {
+  @media #{$extrasmall-up} {
+    @content
+  }
+};
+
+@mixin small-up {
+  @media #{$small-up} {
+    @content
+  }
+};
+
+@mixin normal-up {
+  @media #{$normal-up} {
+    @content
+  }
+};
+
+@mixin large-up {
+  @media #{$large-up} {
+    @content
+  }
+};
+
+@mixin extralarge-up {
+  @media #{$extralarge-up} {
     @content
   }
 };

@@ -1,13 +1,28 @@
-$container-size-extrasmall: 480px;
-$container-size-small: 750px;
-$container-size-normal: 930px;
-$container-size-large: 1600px;
-$container-size-extralarge: 1900px;
+/* From where did you get these values?
+   I would go with the:
+$breakpoint-extrasmall: 480px;
+$breakpoint-small: 768px;
+$breakpoint-medium: 1000px;
+$breakpoint-default: 1366px;
+$breakpoint-large: 1440px;
+$breakpoint-extralarge: 1920px;
+*/
+$breakpoint-extrasmall: 480px;
+$breakpoint-small: 750px;
+$breakpoint-normal: 930px;
+$breakpoint-large: 1600px;
+$breakpoint-extralarge: 1900px;
 
+$screen: "only screen";
 
+$extrasmall-down: "#{$screen} and (max-width: #{$breakpoint-extrasmall - 1})";
+$small-down: "#{$screen} and (max-width: #{$breakpoint-small - 1})";
+$normal-down: "#{$screen} and (max-width: #{$breakpoint-normal - 1})";
+$large-down: "#{$screen} and (max-width: #{$breakpoint-large - 1})";
+$extralarge-down: "#{$screen} and (max-width: #{$breakpoint-extralarge - 1})";
 
-$extrasmall: "screen and (max-width: 480px;)";
-$small: "screen and (max-width: 750px;)";
-$normal: "screen and (max-width: 930px;)";
-$large: "screen and (max-width: 1600px;)";
-$extralarge: "screen and (min width #{$container-size-large +1 })";
+$extrasmall-up: "#{$screen} and (min-width: #{$breakpoint-extrasmall})";
+$small-up: "#{$screen} and (min-width: #{$breakpoint-small})";
+$normal-up: "#{$screen} and (min-width: #{$breakpoint-normal})";
+$large-up: "#{$screen} and (min-width: #{$breakpoint-large})";
+$extralarge-up: "#{$screen} and (min-width: #{$breakpoint-extralarge})";
