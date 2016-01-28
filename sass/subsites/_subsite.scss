@@ -1,0 +1,24 @@
+.subsite {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+
+    div {
+      @include fontWeight('light');
+      color: #ffffff;
+      font-kerning: auto;
+      font-size: 18px;
+      line-height: 30px;
+    }
+
+    &.barber {
+      background-image: url("img/BG_barber_podstrona.jpg");
+
+      title {
+        @include  fontWeight('medium');
+        font-size: 24px;
+        padding-bottom: 20px;
+      }
+    }
+}
