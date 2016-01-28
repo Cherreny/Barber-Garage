@@ -1,4 +1,4 @@
-.subsite {
+.subpage {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,7 +13,7 @@
     }
 
     &.barber {
-      background-image: url("img/BG_barber_podstrona.jpg");
+      background-image: url("/img/BG_barber_podstrona.jpg");
 
       title {
         @include  fontWeight('medium');
