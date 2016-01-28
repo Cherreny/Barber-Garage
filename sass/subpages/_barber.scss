@@ -1,6 +1,5 @@
 .barber {
   background-image: url("/img/BG_barber_podstrona.jpg");
-  height: 200%;
 
   title {
     @include  fontWeight('medium');
@@ -8,8 +7,8 @@
     padding-bottom: 20px;
   }
 
-  p {
-    padding: 40px 0 0 20px;
-    float: left;
+  div {
+    padding-top: 40px;
+    padding-left: 20px;
   }
 }
