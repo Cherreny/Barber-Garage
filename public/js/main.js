@@ -26,15 +26,23 @@
   var SCROLL_TOP_LIMIT = 25;
   var navMain = document.getElementsByClassName('nav-main')[0];
 
-  var scrollHandler = debounce(function() {
-    if (window.scrollY > SCROLL_TOP_LIMIT) {
-      navMain.classList.add('nav-small');
-    } else {
-      navMain.classList.remove('nav-small');
-    }
-  }, 250);
+  if (navMain.dataset.navSmall) {
+    navMain.classList.add('nav-small');
+  } else {
+    addScrollHandler();
+  }
 
-  addEvent(window, 'scroll', scrollHandler);
+  function addScrollHandler() {
+    var scrollHandler = debounce(function() {
+      if (window.scrollY > SCROLL_TOP_LIMIT) {
+        navMain.classList.add('nav-small');
+      } else {
+        navMain.classList.remove('nav-small');
+      }
+    }, 250);
+
+    addEvent(window, 'scroll', scrollHandler);
+  }
 
   smoothScroll.init({
     selector: '[data-scroll]', // Selector for links (must be a valid CSS selector)

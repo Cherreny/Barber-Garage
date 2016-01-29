@@ -46,10 +46,8 @@
           margin-top: $footer-margin;
         }
 
-        &:last-of-type {
-          &:after {
-            display: none;
-          }
+        &:last-of-type:after {
+          display: none;
         }
       }
     }
