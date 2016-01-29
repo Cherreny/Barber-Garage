@@ -1,61 +1,88 @@
-footer {
+#contact {
+  $footer-height: 450px;
+  $logo-width: 105px;
+  $footer-margin: 35px;
+
   background-color: #121212;
-  font-family: 'Raleway', sans-serif;
   overflow: hidden;
 
-  ul {
-    list-style: none;
-  }
-
-  .map-wrapper {
+  #map {
     background-color: #ffffff;
     float: left;
-    height: 400px;
+    height: $footer-height;
+    overflow: hidden;
     width: 50%;
   }
 
-  .logo-wrapper {
-    box-sizing: border-box;
-    float: left;
-    padding: 35px 35px 0 35px;
-
-    img {
-      width: 105px;
-    }
-
-    li {
-      height: 180px;
-    }
-  }
-
   .contact-wrapper {
-    box-sizing: border-box;
-    float: left;
-    height: 100%;
-    letter-spacing: 0.04em;
-    padding-top: 35px;
-    width: 30%;
-    vertical-align: middle;
+    height: $footer-height;
+    overflow: hidden;
+    width: 50%;
 
-    .bargar-list {
-      @include fontWeight('medium');
-      font-size: 14px;
-      color: #ffffff;
+    ul {
+      color: $white;
+      display: block;
+      list-style: none;
+      height: inherit;
+      overflow: hidden;
 
       li {
+        height: ($footer-height/2) - $footer-margin;
         position: relative;
-        margin:10px 0 10px 35px;
+        margin: 0 $footer-margin $footer-margin $footer-margin;
+        overflow: hidden;
+
+        &:after {
+          background-color: $gray-dark;
+          bottom: 0;
+          content: "";
+          height: 3px;
+          left: $footer-margin + $logo-width + $footer-margin;
+          position: absolute;
+          width: 80px;
+        }
+
+        &:first-of-type {
+          margin-top: $footer-margin;
+        }
+
+        &:last-of-type {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .contact-logo-img {
+      float: left;
+      width: $logo-width;
+    }
+
+    .contact-address {
+      float: left;
+      font-style: normal;
+      letter-spacing: 0.04em;
+      margin-left: $footer-margin;
+
+      h1 {
+        @include fontWeight('medium');
+        font-size: 14px;
+        margin: 0 0 20px 0;
+        text-transform: uppercase;
       }
 
-      .adress-list {
+      .contact-info {
         @include fontWeight('light');
-      }
+        font-size: 14px;
+        margin: 0 0 20px $footer-margin;
 
-      .tel-list {
-        @include fontWeight('semiBold');
+        &--strong {
+          @include fontWeight('medium');
+        }
 
-        &:hover {
-          color: gold;
+        &:last-of-type {
+          margin-bottom: 0;
         }
       }
     }
