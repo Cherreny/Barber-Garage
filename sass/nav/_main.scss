@@ -20,11 +20,6 @@
       transition: width 0.3s, height 0.3s;
       width: 190px;
       padding: 20px;
-
-      @include normal-down() {
-        height: 100px;
-        width: 148px;
-      };
     }
   }
 

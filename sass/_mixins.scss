@@ -6,68 +6,83 @@
   z-index: map-get($zindexes, $zindex);
 }
 
-@mixin extrasmall-down {
-  @media #{$extrasmall-down} {
+/*
+  responsive mixins
+  {down}
+*/
+@mixin phone-down {
+  @media #{$phone-down} {
     @content
   }
 };
 
-@mixin small-down {
-  @media #{$small-down} {
+@mixin tablet-down {
+  @media #{$tablet-down} {
     @content
   }
 };
 
-@mixin normal-down {
-  @media #{$normal-down} {
+@mixin tablet-large-down {
+  @media #{$tablet-large-down} {
     @content
   }
 };
 
-@mixin large-down {
-  @media #{$large-down} {
+@mixin desktop-down {
+  @media #{$desktop-down} {
     @content
   }
 };
 
-@mixin extralarge-down {
-  @media #{$extralarge-down} {
+@mixin desktop-large-down {
+  @media #{$desktop-large-down} {
     @content
   }
 };
 
-@mixin extrasmall-up {
-  @media #{$extrasmall-up} {
+@mixin desktop-extralarge-down {
+  @media #{$desktop-extralarge-down} {
     @content
   }
 };
 
-@mixin extrasmall-up {
-  @media #{$extrasmall-up} {
+/*
+  responsive mixins
+  {up}
+*/
+
+@mixin phone-up {
+  @media #{$phone-up} {
     @content
   }
 };
 
-@mixin small-up {
-  @media #{$small-up} {
+@mixin tablet-up {
+  @media #{$tablet-up} {
     @content
   }
 };
 
-@mixin normal-up {
-  @media #{$normal-up} {
+@mixin tablet-large-up {
+  @media #{$tablet-large-up} {
     @content
   }
 };
 
-@mixin large-up {
-  @media #{$large-up} {
+@mixin desktop-up {
+  @media #{$desktop-up} {
     @content
   }
 };
 
-@mixin extralarge-up {
-  @media #{$extralarge-up} {
+@mixin desktop-large-up {
+  @media #{$desktop-large-up} {
+    @content
+  }
+};
+
+@mixin desktop-extralarge-up {
+  @media #{$desktop-extralarge-up} {
     @content
   }
 };
