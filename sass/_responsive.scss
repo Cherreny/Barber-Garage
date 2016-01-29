@@ -14,9 +14,9 @@ $desktop-down: "#{$screen} and (max-width: #{$breakpoint-desktop - 1})";
 $desktop-large-down: "#{$screen} and (max-width: #{$breakpoint-desktop-large - 1})";
 $desktop-extralarge-down: "#{$screen} and (max-width: #{$breakpoint-desktop-extralarge - 1})";
 
-$phone-down: "#{$screen} and (min-width: #{$breakpoint-phone})";
-$tablet-down: "#{$screen} and (min-width: #{$breakpoint-tablet})";
-$tablet-large-down: "#{$screen} and (min-width: #{$breakpoint-tablet-large})";
-$desktop-down: "#{$screen} and (min-width: #{$breakpoint-desktop})";
-$desktop-large-down: "#{$screen} and (min-width: #{$breakpoint-desktop-large})";
-$desktop-extralarge-down: "#{$screen} and (min-width: #{$breakpoint-desktop-extralarge})";
+$phone-up: "#{$screen} and (min-width: #{$breakpoint-phone})";
+$tablet-up: "#{$screen} and (min-width: #{$breakpoint-tablet})";
+$tablet-large-up: "#{$screen} and (min-width: #{$breakpoint-tablet-large})";
+$desktop-up: "#{$screen} and (min-width: #{$breakpoint-desktop})";
+$desktop-large-up: "#{$screen} and (min-width: #{$breakpoint-desktop-large})";
+$desktop-extralarge-up: "#{$screen} and (min-width: #{$breakpoint-desktop-extralarge})";

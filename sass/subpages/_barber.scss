@@ -1,16 +1,18 @@
-body.subpage-barber {
-  background: url("/img/bg_subpage_barber.jpg") no-repeat center center;
-  background-size: cover;
-}
-
 .container-subpage {
   .barber {
+    background: url("/img/bg_subpage_barber.jpg") no-repeat center center;
+    background-size: cover;
+
     label {
       @include fontWeight('medium');
       display: block;
       font-size: 24px;
       padding-bottom: 20px;
       padding-top: 40px;
+
+      @include desktop-down() {
+        font-size: 22px;
+      }
     }
 
     div {

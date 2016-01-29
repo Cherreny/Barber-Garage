@@ -1,23 +1,52 @@
 #contact {
-  $footer-height: 450px;
+  $footer-height-desktop: 385px;
+  $footer-height-desktop-large-up: 450px;
+  $footer-margin-desktop: 10px;
+  $footer-margin-desktop-large-up: 35px;
+
   $logo-width: 105px;
-  $footer-margin: 35px;
 
   background-color: #121212;
   overflow: hidden;
 
+  @include tablet-large-down() {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+
   #map {
     background-color: #ffffff;
     float: left;
-    height: $footer-height;
+    height: $footer-height-desktop-large-up;
     overflow: hidden;
     width: 50%;
+
+    @include tablet-large-down() {
+      display: flex;
+      height: 45%;
+      width: 100%;
+    }
+
+    @include desktop-large-down() {
+      height: $footer-height-desktop;
+    }
   }
 
   .contact-wrapper {
-    height: $footer-height;
+    height: $footer-height-desktop-large-up;
     overflow: hidden;
     width: 50%;
+
+    @include tablet-large-down() {
+      display: flex;
+      margin: 0 auto;
+      width: auto;
+    }
+
+    @include desktop-large-down() {
+      height: $footer-height-desktop;
+    }
 
     ul {
       color: $white;
@@ -26,24 +55,36 @@
       height: inherit;
       overflow: hidden;
 
+      @include tablet-large-down() {
+        width: 100%;
+      }
+
       li {
-        height: ($footer-height/2) - $footer-margin;
+        height: ($footer-height-desktop-large-up/2) - $footer-margin-desktop-large-up;
         position: relative;
-        margin: 0 $footer-margin $footer-margin $footer-margin;
+        margin: 0 $footer-margin-desktop-large-up $footer-margin-desktop-large-up $footer-margin-desktop-large-up;
         overflow: hidden;
+
+        @include desktop-large-down() {
+          height: ($footer-height-desktop/2) - $footer-margin-desktop;
+        }
 
         &:after {
           background-color: $gray-dark;
           bottom: 0;
           content: "";
           height: 3px;
-          left: $footer-margin + $logo-width + $footer-margin;
+          left: $footer-margin-desktop-large-up + $logo-width + $footer-margin-desktop-large-up;
           position: absolute;
           width: 80px;
         }
 
         &:first-of-type {
-          margin-top: $footer-margin;
+          margin-top: $footer-margin-desktop-large-up;
+
+          @include desktop-large-down() {
+            margin-top: $footer-margin-desktop;
+          }
         }
 
         &:last-of-type:after {
@@ -61,19 +102,27 @@
       float: left;
       font-style: normal;
       letter-spacing: 0.1em;
-      margin-left: $footer-margin;
+      margin-left: $footer-margin-desktop-large-up;
 
       h1 {
         @include fontWeight('medium');
         font-size: 14px;
         margin: 0 0 20px 0;
         text-transform: uppercase;
+
+        @include desktop-large-down() {
+          font-size: 12px;
+        }
       }
 
       .contact-info {
         @include fontWeight('light');
         font-size: 14px;
-        margin: 0 0 20px $footer-margin;
+        margin: 0 0 20px $footer-margin-desktop-large-up;
+
+        @include desktop-large-down() {
+          font-size: 12px;
+        }
 
         &--strong {
           @include fontWeight('medium');
