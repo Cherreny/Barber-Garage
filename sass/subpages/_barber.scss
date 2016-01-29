@@ -1,0 +1,14 @@
+.barber {
+  background-image: url("/img/BG_barber_podstrona.jpg");
+
+  title {
+    @include  fontWeight('medium');
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
+
+  div {
+    padding-top: 40px;
+    padding-left: 20px;
+  }
+}

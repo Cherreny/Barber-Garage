@@ -1,0 +1,19 @@
+.subpage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+    div {
+      @include fontWeight('light');
+      color: #ffffff;
+      font-kerning: auto;
+      font-size: 18px;
+      line-height: 30px;
+
+      p {
+        width: 50%;
+      }
+    }
+
+
+}
