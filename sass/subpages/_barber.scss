@@ -1,24 +1,28 @@
-.barber {
-  background-image: url("/img/bg_subpage_barber.jpg");
+body.subpage-barber {
+  background: url("/img/bg_subpage_barber.jpg") no-repeat center center;
+  background-size: cover;
+}
 
-  label {
-    @include fontWeight('medium');
-    display: block;
-    font-size: 24px;
-    padding-bottom: 20px;
-    padding-top: 40px;
+.container-subpage {
+  .barber {
+    label {
+      @include fontWeight('medium');
+      display: block;
+      font-size: 24px;
+      padding-bottom: 20px;
+      padding-top: 40px;
+    }
 
-  }
+    div {
+      padding-bottom: 100px;
+      padding-top: 200px;
 
-  div {
-    padding-bottom: 100px;
-    padding-top: 200px;
-    
-    table {
-      width: 50%;
+      table {
+        width: 50%;
 
-      strong {
-        @include fontWeight('medium');
+        strong {
+          @include fontWeight('medium');
+        }
       }
     }
   }

@@ -1,8 +1,4 @@
 .subpage {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
   div {
     @include fontWeight('light');
     color: #ffffff;
@@ -14,10 +10,7 @@
 
     p {
       width: 50%;
+      padding-top: 20px;
     }
   }
-}
-
-.container-subpage {
-  height: auto;
 }
