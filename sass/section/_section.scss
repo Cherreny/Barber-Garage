@@ -21,18 +21,20 @@
 
     a {
       @include fontWeight('extraBold');
-      color: #ffffff;
+      color: $white;
       text-decoration: none;
 
       &.button-reservation {
         border: solid;
-        border-color: #ffffff;
+        border-color: $white;
+        letter-spacing: 0.1em;
         margin-right: 70px;
-        padding: 7px 7px 7px 7px;
+        padding: 12px 20px;
+        text-transform: uppercase;
 
         &:hover {
-          background-color: #ffffff;
-          border-color: #ffffff;
+          background-color: $white;
+          border-color: $white;
           color: #121212;
         }
       }

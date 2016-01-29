@@ -7,10 +7,12 @@
     "url": "git://github.com/Cherreny/Barber-Garage.git"
   },
   "devDependencies": {
+    "ejs": "2.3.4",
+    "express": "4.13.3",
     "http-server": "0.8.5"
   },
   "license": "MIT",
   "scripts": {
-    "start": "node_modules/.bin/http-server"
+    "start": "node server.js"
   }
 }
