@@ -43,13 +43,17 @@
     background-image: url("/img/section1_bg.jpg");
   }
   &.barber {
-    background-image: url("/img/section2_pattern.png"),
-                      url("/img/section2_bg.jpg");
+    background-image: url("/img/dot_pattern.png"),
+                      url("/img/bg_home_barber.jpg");
     background-position: left, center;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
   }
   &.garage {
-    background-image: url("/img/section3_bg.jpg");
+    background-image: url("/img/dot_pattern.png"),
+                      url("/img/bg_home_garage.jpg");
+    background-position: left, center;
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
   }
 }

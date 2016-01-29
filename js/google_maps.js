@@ -179,12 +179,12 @@ function initMap() {
   var markers = [
     {
       name: 'barber',
-      imgSrc: '/img/marker_barber.png',
+      imgSrc: '/img/marker_barber_small.png',
       latLng: new google.maps.LatLng(52.233850, 20.987273)
     },
     {
       name: 'garage',
-      imgSrc: '/img/marker_garage.png',
+      imgSrc: '/img/marker_garage_small.png',
       latLng: new google.maps.LatLng(52.232497, 20.977438)
     }
   ];
