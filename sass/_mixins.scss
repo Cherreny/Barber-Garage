@@ -5,3 +5,84 @@
 @mixin zindex($zindex) {
   z-index: map-get($zindexes, $zindex);
 }
+
+/*
+  responsive mixins
+  {down}
+*/
+@mixin phone-down {
+  @media #{$phone-down} {
+    @content
+  }
+};
+
+@mixin tablet-down {
+  @media #{$tablet-down} {
+    @content
+  }
+};
+
+@mixin tablet-large-down {
+  @media #{$tablet-large-down} {
+    @content
+  }
+};
+
+@mixin desktop-down {
+  @media #{$desktop-down} {
+    @content
+  }
+};
+
+@mixin desktop-large-down {
+  @media #{$desktop-large-down} {
+    @content
+  }
+};
+
+@mixin desktop-extralarge-down {
+  @media #{$desktop-extralarge-down} {
+    @content
+  }
+};
+
+/*
+  responsive mixins
+  {up}
+*/
+
+@mixin phone-up {
+  @media #{$phone-up} {
+    @content
+  }
+};
+
+@mixin tablet-up {
+  @media #{$tablet-up} {
+    @content
+  }
+};
+
+@mixin tablet-large-up {
+  @media #{$tablet-large-up} {
+    @content
+  }
+};
+
+@mixin desktop-up {
+  @media #{$desktop-up} {
+    @content
+  }
+};
+
+@mixin desktop-large-up {
+  @media #{$desktop-large-up} {
+    @content
+  }
+};
+
+@mixin desktop-extralarge-up {
+  @media #{$desktop-extralarge-up} {
+    @content
+  }
+};

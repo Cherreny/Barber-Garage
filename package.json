@@ -7,8 +7,7 @@
     "url": "git://github.com/Cherreny/Barber-Garage.git"
   },
   "devDependencies": {
-    "http-server": "0.8.5",
-    "smooth-scroll": "7.1.1"
+    "http-server": "0.8.5"
   },
   "license": "MIT",
   "scripts": {

@@ -1,0 +1,22 @@
+$breakpoint-phone: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-large: 1024px;
+$breakpoint-desktop: 1366px;
+$breakpoint-desktop-large: 1440px;
+$breakpoint-desktop-extralarge: 1920px;
+
+$screen: "only screen";
+
+$phone-down: "#{$screen} and (max-width: #{$breakpoint-phone - 1})";
+$tablet-down: "#{$screen} and (max-width: #{$breakpoint-tablet - 1})";
+$tablet-large-down: "#{$screen} and (max-width: #{$breakpoint-tablet-large - 1})";
+$desktop-down: "#{$screen} and (max-width: #{$breakpoint-desktop - 1})";
+$desktop-large-down: "#{$screen} and (max-width: #{$breakpoint-desktop-large - 1})";
+$desktop-extralarge-down: "#{$screen} and (max-width: #{$breakpoint-desktop-extralarge - 1})";
+
+$phone-down: "#{$screen} and (min-width: #{$breakpoint-phone})";
+$tablet-down: "#{$screen} and (min-width: #{$breakpoint-tablet})";
+$tablet-large-down: "#{$screen} and (min-width: #{$breakpoint-tablet-large})";
+$desktop-down: "#{$screen} and (min-width: #{$breakpoint-desktop})";
+$desktop-large-down: "#{$screen} and (min-width: #{$breakpoint-desktop-large})";
+$desktop-extralarge-down: "#{$screen} and (min-width: #{$breakpoint-desktop-extralarge})";
