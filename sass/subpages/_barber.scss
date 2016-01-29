@@ -20,6 +20,10 @@ body.subpage-barber {
       table {
         width: 50%;
 
+        td:last-of-type {
+          text-align: right;
+        }
+
         strong {
           @include fontWeight('medium');
         }
