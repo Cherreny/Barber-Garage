@@ -1,63 +1,15 @@
 .nav-main {
-  @include zindex('navMain');
-  background-color: transparent;
-  transition: background-color 0.2s;
-  font-size: 14px;
-  overflow: hidden;
-  position: fixed;
-  text-transform: uppercase;
+  min-height: 60px;
+  background: grey;
   width: 100%;
-
-  @include tablet-large-down() {
-    min-height: 60px;
-    background: grey;
-    ul {
-      list-style: none;
-      font: bold 14px/60px 'Open Sans', sans-serif;
-      color: white;
-      margin-top:55px;
-      overflow: hidden;
-      max-height:0;
-      transition:max-height 0.35s ease 0s;
-      -webkit-transition:max-height 0.35s ease 0s;
-      -moz-transition:max-height 0.35s ease 0s;
-      display: flex;
-      flex-direction: column-reverse;
-      li {
-        width: 300px;
-        display: inline;
-        a {
-          font: bold 14px/60px 'Open Sans', sans-serif;
-          color: white;
-          height: 60px;
-          text-decoration: none;
-          display: block;
-        }
-      }
-    }
-
-    #input-toggle:checked + ul {
-    max-height: 500px;
-    }
-   }
+  position: fixed;
+  z-index: 2000;
+  background-color: #121212;
+  height: 80px;
 
   .logo-wrapper {
-    float: left;
-
-    a {
-      display: block;
-    }
-
-    .logo-barber-garage {
-      height: 128px;
-      transition: width 0.3s, height 0.3s;
-      width: 190px;
-      padding: 20px;
-    }
-  }
-
-  &.nav-small {
-    background-color: #121212;
+    width: 130px;
+    margin: none;
 
     .logo-barber-garage {
       height: 53px;
@@ -66,76 +18,156 @@
     }
   }
 
-  .nav-list {
-    float: right;
-    height: 30px;
-    padding: 20px;
+  ul {
+    list-style: none;
+    font: bold 14px/60px 'Open Sans', sans-serif;
+    color: white;
+    margin-top: 55px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease 0s;
+    -webkit-transition: max-height 0.35s ease 0s;
+    -moz-transition: max-height 0.35s ease 0s;
+  }
 
-    li {
-      color: #ffffff;
-      display: inline-table;
-      line-height: 30px;
-      vertical-align: middle;
-
-      &.nav-lang {
-        margin: auto 5px 0 5px;
-      }
-
-      &.nav-media {
-        margin-right: 40px;
-
-        a {
-          display: block;
-          height: 21px;
-          width: 21px;
-
-          img {
-            display: block;
-            margin: 0 auto;
-          }
-        }
-      }
-
-      &.nav-section,
-      &.nav-tel {
-        margin-right: 65px;
-      }
-
-      a {
-        color: #ffffff;
-        text-decoration: none;
-
-        &:hover,
-        &.active {
-          @include fontWeight('extraBold');
-        }
-      }
-    }
+  #input-toggle:checked + ul {
+    max-height: 500px;
   }
 }
 
-@include tablet-large-down() {
+#input-toggle {
+  opacity: 0;
+}
 
-    #input-toggle {
-    opacity: 0;
+.nav-toggle {
+  width: 44px;
+  height: 33px;
+  border-radius: 4px;
+  border: 1px solid #404040;
+  background-image: none;
+  float: right;
+  padding-top: 10px;
+
+  span {
+    background-color: green;
+    border-radius: 1px 1px 1px 1px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+    display: block;
+    height: 2px;
+    width: 18px;
+    margin: 4px auto;
+  }
+}
+
+.nav-list {
+  direction: rtl;
+  background-color: #121212;
+  transition: max-height 0.35s ease 0s;
+
+
+  .nav-media {
+    width: 20px;
+    float: left;
+ }
+
+  .nav-lang {
+    width: 20px;
+    float: right;
   }
 
-  .nav-toggle {
-    width: 44px;
-    height: 33px;
-    border-radius: 4px;
-    border: 1px solid #404040;
-    background-image: none;
-    float: right;
-    padding-top: 10px;
-    span {
-      background-color: green;
-      border-radius: 1px 1px 1px 1px;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-      display: block;
-      height: 2px;
-      width: 18px;
-      margin: 4px auto;
+  .nav-section {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.small {
+  margin: none;
+  transition: none;
+  display: inline;
+}
+
+@include tablet-large-up() {
+
+  .nav-main {
+    @include zindex('navMain');
+    background-color: transparent;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    overflow: hidden;
+    position: fixed;
+    text-transform: uppercase;
+    width: 100%;
+
+    .logo-wrapper {
+      float: left;
+
+      a {
+        display: block;
+      }
+
+      .logo-barber-garage {
+        height: 128px;
+        transition: width 0.3s, height 0.3s;
+        width: 190px;
+        padding: 20px;
+      }
+    }
+    &.nav-small {
+      background-color: #121212;
+
+      .logo-barber-garage {
+        height: 53px;
+        width: 79px;
+        padding: 10px 20px 10px 20px;
+      }
+    }
+
+    .nav-list {
+      float: right;
+      height: 30px;
+      padding: 20px;
+
+      li {
+        color: #ffffff;
+        display: inline-table;
+        line-height: 30px;
+        vertical-align: middle;
+
+        &.nav-lang {
+          margin: auto 5px 0 5px;
+        }
+
+        &.nav-media {
+          margin-right: 40px;
+
+          a {
+            display: block;
+            height: 21px;
+            width: 21px;
+
+            img {
+              display: block;
+              margin: 0 auto;
+            }
+          }
+        }
+
+        &.nav-section,
+        &.nav-tel {
+          margin-right: 65px;
+        }
+
+        a {
+          color: #ffffff;
+          text-decoration: none;
+
+          &:hover,
+          &.active {
+            @include fontWeight('extraBold');
+          }
+        }
+      }
     }
   }
 }
