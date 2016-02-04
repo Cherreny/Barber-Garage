@@ -1,15 +1,16 @@
 .nav-main {
-  min-height: 60px;
   background: grey;
   width: 100%;
   position: fixed;
-  z-index: 2000;
+  @include zindex('navMain');
   background-color: #121212;
-  height: 80px;
+  min-height: 80px;
+  max-height: 100%;
 
   .logo-wrapper {
     width: 130px;
     margin: none;
+    float: left;
 
     .logo-barber-garage {
       height: 53px;
@@ -28,10 +29,11 @@
     transition: max-height 0.35s ease 0s;
     -webkit-transition: max-height 0.35s ease 0s;
     -moz-transition: max-height 0.35s ease 0s;
+    width: 100%;
   }
 
   #input-toggle:checked + ul {
-    max-height: 500px;
+    max-height: 100%;
   }
 }
 
@@ -47,6 +49,7 @@
   background-image: none;
   float: right;
   padding-top: 10px;
+  margin: 10px 20px 10px 20px;
 
   span {
     background-color: green;
@@ -60,10 +63,8 @@
 }
 
 .nav-list {
-  direction: rtl;
   background-color: #121212;
   transition: max-height 0.35s ease 0s;
-
 
   .nav-media {
     width: 20px;
@@ -79,12 +80,10 @@
     width: 100%;
     text-align: center;
   }
-}
 
-.small {
-  margin: none;
-  transition: none;
-  display: inline;
+  .nav-tel {
+    text-align: center;
+  }
 }
 
 @include tablet-large-up() {
