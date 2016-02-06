@@ -53,7 +53,6 @@
     offset: 0 // Integer. How far to offset the scrolling anchor location in pixels
   });
 
-
   var homepageNavLinks = Array.prototype.slice.call(document.getElementsByClassName('nav-home__link'));
   homepageNavLinks.forEach(function (elem) {
     addEvent(elem, 'click', setActive);
@@ -67,6 +66,11 @@
 
   function setActive(event) {
     removeClass('active');
-    event.target.classList.add('active');
+    event.currentTarget.classList.add('active');
   }
+
+  var mobileNavToggleButton = document.getElementsByClassName('nav-toggle')[0];
+  addEvent(mobileNavToggleButton, 'click', function () {
+    mobileNavToggleButton.classList.toggle('open');
+  });
 })();
