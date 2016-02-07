@@ -11,8 +11,8 @@
     @include zindex('navMain');
 
     .logo-wrapper {
-      margin: 0;
       float: left;
+      margin: 0;
       position: relative;
       width: 130px;
       @include zindex('navMain');
@@ -74,38 +74,42 @@
     &.open {
       span {
         &:nth-child(1) {
-          top: -3px;
           left: 8px;
+          top: -3px;
           transform: rotate(45deg);
         }
 
         &:nth-child(2) {
-          width: 0%;
           opacity: 0;
+          width: 0%;
         }
 
         &:nth-child(3) {
-          top: 32px;
           left: 8px;
+          top: 32px;
           transform: rotate(-45deg);
         }
       }
       & + .nav-mobile-list {
-        color: $white;
         background-color: rgba(0, 0, 0, 0.8);
+        color: $white;
         display: block;
-        width: 100%;
         height: 100%;
         padding-top: 80px;
         position: fixed;
         text-align: center;
         text-transform: uppercase;
+        width: 100%;
         @include fontWeight('extraBold');
 
         .nav-media {
           float: left;
           height: 10%;
           padding-top: 20px;
+
+          a {
+            text-decoration: none;
+          }
 
           img {
             padding-left: 20px;
@@ -114,37 +118,36 @@
 
         .nav-lang {
           float: right;
+          font-size: 20px;
           height: 10%;
           padding-top: 20px;
-          font-size: 20px;
 
           a {
-            padding-right: 20px;
-            text-decoration: none;
             color: $white;
             opacity: 0.5;
+            padding-right: 20px;
+            text-decoration: none;
             @include fontWeight('extraBold');
 
             &:hover,
             &.active {
               opacity: 1;
             }
-
           }
         }
 
         .nav-section {
+          box-sizing: border-box;
           clear: both;
           font-size: 40px;
           height: 40%;
-          box-sizing: border-box;
           padding-top: 60px;
 
           a {
-            display: block;
-            text-decoration: none;
             color: $white;
+            display: block;
             padding-top: 10px;
+            text-decoration: none;        
           }
         }
 
