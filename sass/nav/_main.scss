@@ -105,6 +105,7 @@
         .nav-media {
           float: left;
           height: 10%;
+          padding-top: 20px;
 
           img {
             padding-left: 20px;
@@ -114,9 +115,11 @@
         .nav-lang {
           float: right;
           height: 10%;
+          padding-top: 20px;
+          font-size: 20px;
 
           a {
-            padding-left: 20px;
+            padding-right: 20px;
             text-decoration: none;
             color: $white;
             opacity: 0.5;
@@ -132,23 +135,33 @@
 
         .nav-section {
           clear: both;
-          font-size: 55px;
-          height: 50%;
+          font-size: 40px;
+          height: 40%;
+          box-sizing: border-box;
+          padding-top: 60px;
 
           a {
             display: block;
             text-decoration: none;
             color: $white;
+            padding-top: 10px;
           }
         }
 
         .nav-contact {
           height: 40%;
+          padding-bottom: 40px;
+
           div {
-            padding-top: 20px;
+            padding-top: 40px;
+            text-transform: none;
+            @include fontWeight('normal');
           }
+
           label {
             display: block;
+            text-transform: uppercase;
+            @include fontWeight('extraBold');
           }
         }
       }
