@@ -121,30 +121,16 @@
             display: block;
           }
         }
-      }
-    }
 
-    .nav-list {
-      background-color: $nav-background;
-      transition: max-height 0.35s ease 0s;
+        a {
+          text-decoration: none;
+          color: $white;
 
-      .nav-media {
-        width: 20px;
-        float: left;
-     }
-
-      .nav-lang {
-        width: 20px;
-        float: right;
-      }
-
-      .nav-section {
-        width: 100%;
-        text-align: center;
-      }
-
-      .nav-tel {
-        text-align: center;
+          &:hover,
+          &.active {
+            @include fontWeight('extraBold');
+          }
+        }
       }
     }
   }
