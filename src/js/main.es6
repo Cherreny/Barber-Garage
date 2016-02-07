@@ -1,11 +1,8 @@
-'use strict';
-
-$().ready(function () {
+$().ready(() => {
   function debounce(func, wait, immediate) {
     var timeout = null;
     return function debounceInner() {
-      var context = this,
-          args = Array.prototype.slice.call(arguments);
+      var context = this, args = Array.prototype.slice.call(arguments);
       function laterFn() {
         timeout = null;
         if (!immediate) func.apply(context, args);
@@ -17,8 +14,8 @@ $().ready(function () {
     };
   }
 
-  var SCROLL_TOP_LIMIT = 25;
-  var $navMain = $('.nav-main');
+  const SCROLL_TOP_LIMIT = 25;
+  let $navMain = $('.nav-main');
 
   if ($navMain.data('nav-small')) {
     $navMain.addClass('nav-small');
@@ -27,7 +24,7 @@ $().ready(function () {
   }
 
   function addScrollHandler() {
-    var scrollHandler = debounce(function () {
+    let scrollHandler = debounce(function() {
       if (window.scrollY > SCROLL_TOP_LIMIT) {
         $navMain.addClass('nav-small');
       } else {
@@ -47,12 +44,12 @@ $().ready(function () {
     offset: 0 // Integer. How far to offset the scrolling anchor location in pixels
   });
 
-  $('.nav-home__link').each(function (idx, elem) {
+  $('.nav-home__link').each((idx, elem) => {
     $(elem).on('click', setActive);
   });
 
   function setActive(currentElem) {
-    $('.nav-home__link').each(function (idx, elem) {
+    $('.nav-home__link').each((idx, elem) => {
       $(elem).removeClass('active');
     });
     $(currentElem).addClass('active');
