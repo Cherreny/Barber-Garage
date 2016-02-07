@@ -99,36 +99,56 @@
         padding-top: 80px;
         position: fixed;
         text-align: center;
+        text-transform: uppercase;
+        @include fontWeight('extraBold');
 
         .nav-media {
           float: left;
+          height: 10%;
+
+          img {
+            padding-left: 20px;
+          }
         }
 
         .nav-lang {
           float: right;
+          height: 10%;
+
+          a {
+            padding-left: 20px;
+            text-decoration: none;
+            color: $white;
+            opacity: 0.5;
+            @include fontWeight('extraBold');
+
+            &:hover,
+            &.active {
+              opacity: 1;
+            }
+
+          }
         }
 
         .nav-section {
           clear: both;
+          font-size: 55px;
+          height: 50%;
 
           a {
             display: block;
+            text-decoration: none;
+            color: $white;
           }
         }
 
         .nav-contact {
+          height: 40%;
+          div {
+            padding-top: 20px;
+          }
           label {
             display: block;
-          }
-        }
-
-        a {
-          text-decoration: none;
-          color: $white;
-
-          &:hover,
-          &.active {
-            @include fontWeight('extraBold');
           }
         }
       }
