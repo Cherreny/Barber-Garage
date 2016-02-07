@@ -12,7 +12,7 @@
 
   div {
     @include fontWeight('light');
-    color: #ffffff;
+    color: $white;
     font-kerning: auto;
     font-size: 18px;
     line-height: 30px;
@@ -48,7 +48,7 @@
           border-radius: 5px;
           background-color: $white;
           border-color: $white;
-          color: #121212;
+          color: $nav-background;
         }
 
         @include desktop-down() {
@@ -58,7 +58,7 @@
         &:hover {
           background-color: $white;
           border-color: $white;
-          color: #121212;
+          color: $nav-background;
         }
       }
 

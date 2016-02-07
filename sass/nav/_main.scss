@@ -1,62 +1,59 @@
+.nav-mobile-list {
+  display: none;
+}
+
 @include tablet-large-down() {
   .nav-main {
-    background: grey;
-    width: 100%;
+    background-color: $nav-background;
+    height: 80px;
     position: fixed;
+    width: 100%;
     @include zindex('navMain');
-    background-color: #121212;
-    min-height: 80px;
-    max-height: 100%;
 
     .logo-wrapper {
-      width: 130px;
       margin: 0;
       float: left;
       position: relative;
+      width: 130px;
       @include zindex('navMain');
 
       .logo-barber-garage {
         height: 53px;
-        width: 79px;
         padding: 10px 20px 10px 20px;
+        width: 79px;
       }
     }
 
     .nav-list {
-      list-style: none;
-      color: white;
-      overflow: hidden;
-      height: 0;
-      width: 100%;
-      clear: both;
+      display: none;
     }
   }
 
   .nav-toggle {
-    width: 50px;
-    height: 45px;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    transform: rotate(0deg);
-    transition: .5s ease-in-out;
     cursor: pointer;
     float: right;
-    top: 15px;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    position: relative;
     right: 15px;
+    top: 15px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    width: 50px;
     @include zindex('navMain');
 
     span {
-      display: block;
-      position: absolute;
-      height: 6px;
-      width: 100%;
-      background: #ffffff;
+      background: $white;
       border-radius: 6px;
-      opacity: 1;
+      display: block;
+      height: 6px;
       left: 0;
+      opacity: 1;
+      position: absolute;
       transform: rotate(0deg);
       transition: .25s ease-in-out;
+      width: 100%;
 
       &:nth-child(1) {
         top: 0px;
@@ -93,16 +90,42 @@
           transform: rotate(-45deg);
         }
       }
-      & + .nav-list {
+      & + .nav-mobile-list {
+        color: $white;
         background-color: rgba(0, 0, 0, 0.8);
+        display: block;
+        width: 100%;
         height: 100%;
         padding-top: 80px;
         position: fixed;
+        text-align: center;
+
+        .nav-media {
+          float: left;
+        }
+
+        .nav-lang {
+          float: right;
+        }
+
+        .nav-section {
+          clear: both;
+
+          a {
+            display: block;
+          }
+        }
+
+        .nav-contact {
+          label {
+            display: block;
+          }
+        }
       }
     }
 
     .nav-list {
-      background-color: #121212;
+      background-color: $nav-background;
       transition: max-height 0.35s ease 0s;
 
       .nav-media {
@@ -162,7 +185,7 @@
     }
 
     &.nav-small {
-      background-color: #121212;
+      background-color: $nav-background;
 
       .logo-barber-garage {
         height: 53px;
