@@ -16,6 +16,7 @@ $().ready(() => {
 
   const SCROLL_TOP_LIMIT = 25;
   let $navMain = $('.nav-main');
+  let $mobileNavToggleButton = $('.nav-toggle');
 
   if ($navMain.data('nav-small')) {
     $navMain.addClass('nav-small');
@@ -42,6 +43,10 @@ $().ready(() => {
     easing: 'easeInOutQuad', // Easing pattern to use
     updateURL: true, // Boolean. Whether or not to update the URL with the anchor hash on scroll
     offset: 0 // Integer. How far to offset the scrolling anchor location in pixels
+  });
+
+  $mobileNavToggleButton.on('click', () => {
+    $mobileNavToggleButton.toggleClass('open');
   });
 
   $('.nav-home__link').each((idx, elem) => {
