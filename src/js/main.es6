@@ -49,14 +49,60 @@ $().ready(() => {
     $mobileNavToggleButton.toggleClass('open');
   });
 
-  $('.nav-home__link').each((idx, elem) => {
-    $(elem).on('click', setActive);
+  let $navLinks = $('.nav-home__link');
+
+  $navLinks.on('click', (event) => {
+    setActive($navLinks, event.currentTarget);
   });
 
-  function setActive(currentElem) {
-    $('.nav-home__link').each((idx, elem) => {
-      $(elem).removeClass('active');
-    });
+  function setActive(links, currentElem) {
+    clearActive(links);
+    console.log(currentElem);
     $(currentElem).addClass('active');
   }
+
+  function clearActive(links) {
+    links.each((idx, elem) => {
+      $(elem).removeClass('active');
+    });
+  }
+
+  let sectionsList = ['home', 'barber', 'garage', 'contact'];
+  let viewportHeight = getViewportHeight();
+
+  let $sectionsObject = sectionsList.map((section) => {
+    let id = `#${section}`;
+    let $jqueryObj = $(id)[0];
+
+    return {
+      name: section,
+      $jqueryObj
+    };
+  });
+
+  function getViewportHeight() {
+    return document.documentElement.clientHeight;
+  }
+
+  function scrollSpy(viewportHeight) {
+    let currentOffsetTop = window.scrollY;
+    let currentSpecificGravity = currentOffsetTop + (viewportHeight / 2);
+
+    $sectionsObject.forEach(section => {
+      let sectionSpecificGravity = section.$jqueryObj.offsetTop + (section.$jqueryObj.clientHeight / 2);
+      section.distance = Math.abs(currentSpecificGravity - sectionSpecificGravity);
+    });
+    let closestSection = $sectionsObject.reduce((prev, curr) => {
+      return prev.distance < curr.distance ? prev : curr;
+    });
+
+    setActive($navLinks, $navLinks[$sectionsObject.indexOf(closestSection)]);
+  }
+  scrollSpy(viewportHeight);
+
+  $(window).on('resize', getViewportHeight);
+  $(window).on('scroll', () => {
+    scrollSpy(viewportHeight);
+  });
+
 });
