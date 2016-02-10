@@ -1,39 +1,20 @@
 $().ready(() => {
-  function debounce(func, wait, immediate) {
-    var timeout = null;
-    return function debounceInner() {
-      var context = this, args = Array.prototype.slice.call(arguments);
-      function laterFn() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      }
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(laterFn, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
-
   const SCROLL_TOP_LIMIT = 25;
   let $navMain = $('.nav-main');
   let $mobileNavToggleButton = $('.nav-toggle');
 
+  function scrollHandler() {
+    if (window.scrollY > SCROLL_TOP_LIMIT) {
+      $navMain.addClass('nav-small');
+    } else {
+      $navMain.removeClass('nav-small');
+    }
+  }
+
   if ($navMain.data('nav-small')) {
     $navMain.addClass('nav-small');
   } else {
-    addScrollHandler();
-  }
-
-  function addScrollHandler() {
-    let scrollHandler = debounce(function() {
-      if (window.scrollY > SCROLL_TOP_LIMIT) {
-        $navMain.addClass('nav-small');
-      } else {
-        $navMain.removeClass('nav-small');
-      }
-    }, 250);
-
-    $(window).on('scroll', scrollHandler);
+    $(window).on('scroll', _.throttle(scrollHandler, 250));
   }
 
   smoothScroll.init({
@@ -57,7 +38,6 @@ $().ready(() => {
 
   function setActive(links, currentElem) {
     clearActive(links);
-    console.log(currentElem);
     $(currentElem).addClass('active');
   }
 
@@ -81,28 +61,38 @@ $().ready(() => {
   });
 
   function getViewportHeight() {
+    if (typeof viewportHeight === 'undefined') {
+      return updateViewportHeight();
+    } else {
+      return viewportHeight;
+    }
+  }
+
+  function updateViewportHeight() {
     return document.documentElement.clientHeight;
   }
 
-  function scrollSpy(viewportHeight) {
+  function getDistance($section, currentSpecificGravity) {
+    let sectionSpecificGravity = $section.offsetTop + ($section.clientHeight / 2);
+    return Math.abs(currentSpecificGravity - sectionSpecificGravity);
+  }
+
+  function scrollSpy() {
+    let viewportHeight = getViewportHeight();
     let currentOffsetTop = window.scrollY;
     let currentSpecificGravity = currentOffsetTop + (viewportHeight / 2);
 
-    $sectionsObject.forEach(section => {
-      let sectionSpecificGravity = section.$jqueryObj.offsetTop + (section.$jqueryObj.clientHeight / 2);
-      section.distance = Math.abs(currentSpecificGravity - sectionSpecificGravity);
-    });
     let closestSection = $sectionsObject.reduce((prev, curr) => {
-      return prev.distance < curr.distance ? prev : curr;
+      return getDistance(prev.$jqueryObj, currentSpecificGravity) <
+             getDistance(curr.$jqueryObj, currentSpecificGravity) ? prev : curr;
     });
 
     setActive($navLinks, $navLinks[$sectionsObject.indexOf(closestSection)]);
   }
-  scrollSpy(viewportHeight);
 
-  $(window).on('resize', getViewportHeight);
-  $(window).on('scroll', () => {
-    scrollSpy(viewportHeight);
-  });
+  scrollSpy();
+
+  $(window).on('resize', updateViewportHeight);
+  $(window).on('scroll', _.throttle(scrollSpy, 250));
 
 });
