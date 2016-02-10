@@ -63,11 +63,7 @@ $().ready(function () {
   });
 
   function getViewportHeight() {
-    if (typeof viewportHeight === 'undefined') {
-      return updateViewportHeight();
-    } else {
-      return viewportHeight;
-    }
+    return typeof viewportHeight === 'undefined' ? updateViewportHeight() : viewportHeight;
   }
 
   function updateViewportHeight() {
