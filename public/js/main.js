@@ -1,42 +1,22 @@
 'use strict';
 
 $().ready(function () {
-  function debounce(func, wait, immediate) {
-    var timeout = null;
-    return function debounceInner() {
-      var context = this,
-          args = Array.prototype.slice.call(arguments);
-      function laterFn() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      }
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(laterFn, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
-
   var SCROLL_TOP_LIMIT = 25;
   var $navMain = $('.nav-main');
   var $mobileNavToggleButton = $('.nav-toggle');
 
+  function scrollHandler() {
+    if (window.scrollY > SCROLL_TOP_LIMIT) {
+      $navMain.addClass('nav-small');
+    } else {
+      $navMain.removeClass('nav-small');
+    }
+  }
+
   if ($navMain.data('nav-small')) {
     $navMain.addClass('nav-small');
   } else {
-    addScrollHandler();
-  }
-
-  function addScrollHandler() {
-    var scrollHandler = debounce(function () {
-      if (window.scrollY > SCROLL_TOP_LIMIT) {
-        $navMain.addClass('nav-small');
-      } else {
-        $navMain.removeClass('nav-small');
-      }
-    }, 250);
-
-    $(window).on('scroll', scrollHandler);
+    $(window).on('scroll', _.throttle(scrollHandler, 250));
   }
 
   smoothScroll.init({
@@ -52,14 +32,63 @@ $().ready(function () {
     $mobileNavToggleButton.toggleClass('open');
   });
 
-  $('.nav-home__link').each(function (idx, elem) {
-    $(elem).on('click', setActive);
+  var $navLinks = $('.nav-home__link');
+
+  $navLinks.on('click', function (event) {
+    setActive($navLinks, event.currentTarget);
   });
 
-  function setActive(currentElem) {
-    $('.nav-home__link').each(function (idx, elem) {
-      $(elem).removeClass('active');
-    });
+  function setActive(links, currentElem) {
+    clearActive(links);
     $(currentElem).addClass('active');
   }
+
+  function clearActive(links) {
+    links.each(function (idx, elem) {
+      $(elem).removeClass('active');
+    });
+  }
+
+  var sectionsList = ['home', 'barber', 'garage', 'contact'];
+  var viewportHeight = getViewportHeight();
+
+  var $sectionsObject = sectionsList.map(function (section) {
+    var id = '#' + section;
+    var $jqueryObj = $(id)[0];
+
+    return {
+      name: section,
+      $jqueryObj: $jqueryObj
+    };
+  });
+
+  function getViewportHeight() {
+    return typeof viewportHeight === 'undefined' ? updateViewportHeight() : viewportHeight;
+  }
+
+  function updateViewportHeight() {
+    return document.documentElement.clientHeight;
+  }
+
+  function getDistance($section, currentSpecificGravity) {
+    var sectionSpecificGravity = $section.offsetTop + $section.clientHeight / 2;
+    return Math.abs(currentSpecificGravity - sectionSpecificGravity);
+  }
+
+  function scrollSpy() {
+    var viewportHeight = getViewportHeight();
+    var currentOffsetTop = window.scrollY;
+    var currentSpecificGravity = currentOffsetTop + viewportHeight / 2;
+
+    var closestSection = $sectionsObject.reduce(function (prev, curr) {
+      return getDistance(prev.$jqueryObj, currentSpecificGravity) < getDistance(curr.$jqueryObj, currentSpecificGravity) ? prev : curr;
+    });
+
+    setActive($navLinks, $navLinks[$sectionsObject.indexOf(closestSection)]);
+  }
+
+  scrollSpy();
+
+  $(window).on('resize', updateViewportHeight);
+  $(window).on('scroll', _.throttle(scrollSpy, 250));
 });

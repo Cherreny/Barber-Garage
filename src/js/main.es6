@@ -1,39 +1,20 @@
 $().ready(() => {
-  function debounce(func, wait, immediate) {
-    var timeout = null;
-    return function debounceInner() {
-      var context = this, args = Array.prototype.slice.call(arguments);
-      function laterFn() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      }
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(laterFn, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
-
   const SCROLL_TOP_LIMIT = 25;
   let $navMain = $('.nav-main');
   let $mobileNavToggleButton = $('.nav-toggle');
 
+  function scrollHandler() {
+    if (window.scrollY > SCROLL_TOP_LIMIT) {
+      $navMain.addClass('nav-small');
+    } else {
+      $navMain.removeClass('nav-small');
+    }
+  }
+
   if ($navMain.data('nav-small')) {
     $navMain.addClass('nav-small');
   } else {
-    addScrollHandler();
-  }
-
-  function addScrollHandler() {
-    let scrollHandler = debounce(function() {
-      if (window.scrollY > SCROLL_TOP_LIMIT) {
-        $navMain.addClass('nav-small');
-      } else {
-        $navMain.removeClass('nav-small');
-      }
-    }, 250);
-
-    $(window).on('scroll', scrollHandler);
+    $(window).on('scroll', _.throttle(scrollHandler, 250));
   }
 
   smoothScroll.init({
@@ -49,14 +30,65 @@ $().ready(() => {
     $mobileNavToggleButton.toggleClass('open');
   });
 
-  $('.nav-home__link').each((idx, elem) => {
-    $(elem).on('click', setActive);
+  let $navLinks = $('.nav-home__link');
+
+  $navLinks.on('click', (event) => {
+    setActive($navLinks, event.currentTarget);
   });
 
-  function setActive(currentElem) {
-    $('.nav-home__link').each((idx, elem) => {
-      $(elem).removeClass('active');
-    });
+  function setActive(links, currentElem) {
+    clearActive(links);
     $(currentElem).addClass('active');
   }
+
+  function clearActive(links) {
+    links.each((idx, elem) => {
+      $(elem).removeClass('active');
+    });
+  }
+
+  let sectionsList = ['home', 'barber', 'garage', 'contact'];
+  let viewportHeight = getViewportHeight();
+
+  let $sectionsObject = sectionsList.map((section) => {
+    let id = `#${section}`;
+    let $jqueryObj = $(id)[0];
+
+    return {
+      name: section,
+      $jqueryObj
+    };
+  });
+
+  function getViewportHeight() {
+    return typeof viewportHeight === 'undefined' ? updateViewportHeight() : viewportHeight;
+  }
+
+  function updateViewportHeight() {
+    return document.documentElement.clientHeight;
+  }
+
+  function getDistance($section, currentSpecificGravity) {
+    let sectionSpecificGravity = $section.offsetTop + ($section.clientHeight / 2);
+    return Math.abs(currentSpecificGravity - sectionSpecificGravity);
+  }
+
+  function scrollSpy() {
+    let viewportHeight = getViewportHeight();
+    let currentOffsetTop = window.scrollY;
+    let currentSpecificGravity = currentOffsetTop + (viewportHeight / 2);
+
+    let closestSection = $sectionsObject.reduce((prev, curr) => {
+      return getDistance(prev.$jqueryObj, currentSpecificGravity) <
+             getDistance(curr.$jqueryObj, currentSpecificGravity) ? prev : curr;
+    });
+
+    setActive($navLinks, $navLinks[$sectionsObject.indexOf(closestSection)]);
+  }
+
+  scrollSpy();
+
+  $(window).on('resize', updateViewportHeight);
+  $(window).on('scroll', _.throttle(scrollSpy, 250));
+
 });
