@@ -1,19 +1,28 @@
-.container-subpage {
-  .garage {
-    background-image: url("/img/bg_subpage_garage.jpg");
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: center;
+html {
+  height: 100%;
 
-    div {
-      padding-bottom: 100px;
-      padding-top: 300px;
+  .container-subpage {
+    height: 100%;
 
-      @include tablet-large-down() {
-        padding-top: 150px;
+    .garage {
+      background-image: url("/img/bg_subpage_garage.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 100%;
 
-        @include phone-down() {
-          padding-top: 100px;
+      div {
+        padding-bottom: 100px;
+        padding-top: 300px;
+
+        @include tablet-large-down() {
+          padding-top: 150px;
+          padding-bottom: 50px;
+
+          @include phone-down() {
+            padding-top: 100px;
+            padding-bottom: 0;
+          }
         }
       }
     }

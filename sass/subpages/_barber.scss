@@ -2,7 +2,7 @@
   .barber {
     background-image: url("/img/dot_pattern.png"),
                       url("/img/bg_subpage_barber.jpg");
-    background-size: auto, auto 100%;
+    background-size: auto, cover;
     background-repeat: repeat, no-repeat;
     background-position: right, center;
 

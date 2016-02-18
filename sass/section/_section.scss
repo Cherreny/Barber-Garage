@@ -104,13 +104,13 @@
                       url("/img/bg_home_barber.jpg");
     background-position: left, center;
     background-repeat: repeat, no-repeat;
-    background-size: auto, auto 100%;
+    background-size: auto, cover;
   }
   &.garage {
     background-image: url("/img/dot_pattern.png"),
                       url("/img/bg_home_garage.jpg");
     background-position: left, center;
     background-repeat: repeat, no-repeat;
-    background-size: auto, auto 100%;
+    background-size: auto, cover;
   }
 }
