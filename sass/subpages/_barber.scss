@@ -19,8 +19,16 @@
       padding-bottom: 100px;
       padding-top: 200px;
 
+      @include tablet-large-down() {
+        padding-top: 150px;
+      }
+
       table {
         width: 50%;
+
+        @include tablet-large-down() {
+          width: 100%;
+        }
 
         td:last-of-type {
           text-align: right;
