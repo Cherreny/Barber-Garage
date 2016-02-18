@@ -27,6 +27,11 @@
       font-size: 16px;
     }
 
+    @include tablet-down() {
+      font-size: 14px;
+
+    }
+
     p {
       margin: 60px 0 60px 0;
     }
@@ -55,6 +60,10 @@
           margin-right: 40px;
         }
 
+        @include phone-down() {
+          padding: 10px 18px;
+        }
+
         &:hover {
           background-color: $white;
           border-color: $white;
@@ -66,6 +75,10 @@
         bottom: 10%;
         position: absolute;
 
+        @include phone-down() {
+          bottom: 5%;
+        }
+
         &.button-reservation {
 
         }
@@ -74,6 +87,10 @@
           left: 200px;
           line-height: 60px;
           height: 60px;
+
+          @include phone-down() {
+            left: 170px;
+          }
         }
       }
     }
@@ -87,13 +104,13 @@
                       url("/img/bg_home_barber.jpg");
     background-position: left, center;
     background-repeat: repeat, no-repeat;
-    background-size: auto, cover;
+    background-size: auto, auto 100%;
   }
   &.garage {
     background-image: url("/img/dot_pattern.png"),
                       url("/img/bg_home_garage.jpg");
     background-position: left, center;
     background-repeat: repeat, no-repeat;
-    background-size: auto, cover;
+    background-size: auto, auto 100%;
   }
 }

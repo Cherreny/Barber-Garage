@@ -18,6 +18,12 @@
       }
     }
 
+    @include phone-down() {
+      font-size: 14px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
     p {
       width: 50%;
       padding-top: 20px;

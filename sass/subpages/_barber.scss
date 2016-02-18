@@ -1,7 +1,10 @@
 .container-subpage {
   .barber {
-    background: url("/img/bg_subpage_barber.jpg") no-repeat center center;
-    background-size: cover;
+    background-image: url("/img/dot_pattern.png"),
+                      url("/img/bg_subpage_barber.jpg");
+    background-size: auto, auto 100%;
+    background-repeat: repeat, no-repeat;
+    background-position: right, center;
 
     label {
       @include fontWeight('medium');
@@ -12,6 +15,12 @@
 
       @include desktop-down() {
         font-size: 22px;
+
+        @include phone-down() {
+          font-size: 20px;
+          padding-bottom: 10px;
+          padding-top: 30px;
+        }
       }
     }
 
@@ -21,6 +30,10 @@
 
       @include tablet-large-down() {
         padding-top: 150px;
+      }
+
+      @include phone-down() {
+        padding-top: 100px;
       }
 
       table {
