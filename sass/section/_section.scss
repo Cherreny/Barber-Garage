@@ -98,6 +98,12 @@
 
   &.intro {
     background-image: url("/img/section1_bg.jpg");
+
+    iframe {
+      height: 100%;
+      width: 100%;
+      border: 0;
+    }
   }
   &.barber {
     background-image: url("/img/dot_pattern.png"),

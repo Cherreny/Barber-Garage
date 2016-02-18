@@ -163,6 +163,11 @@
             @include fontWeight('normal');
           }
 
+          a {
+            text-decoration: none;
+            color: $white;
+          }
+          
           label {
             display: block;
             text-transform: uppercase;
