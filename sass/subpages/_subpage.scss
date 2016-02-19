@@ -8,9 +8,29 @@
     line-height: 30px;
     padding-left: 60px;
 
+    @include tablet-large-down() {
+      padding-left: 40px;
+      padding-right: 40px;
+
+      @include tablet-down() {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @include phone-down() {
+      font-size: 14px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
     p {
       width: 50%;
       padding-top: 20px;
+
+      @include tablet-large-down() {
+        width: 100%;
+      }
     }
   }
 }

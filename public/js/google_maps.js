@@ -171,9 +171,10 @@ function initMap() {
   ];
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: new google.maps.LatLng(52.234541, 20.981844),
+    center: new google.maps.LatLng(52.233850, 20.987273),
     scrollwheel: false,
-    styles: styleArray
+    styles: styleArray,
+    zoomControl: true
   });
 
   var markers = [
@@ -201,11 +202,11 @@ function initMap() {
     mapBounds.extend(marker.latLng);
   });
 
-  map.fitBounds(mapBounds);
+  // map.fitBounds(mapBounds);
 
   // `fitBounds` sets map zoom in highest value possible so we want to zoom out a little bit
   var listener = google.maps.event.addListener(map, "idle", function() {
-    map.setZoom(15);
+    map.setZoom(16);
     google.maps.event.removeListener(listener);
   });
 }
