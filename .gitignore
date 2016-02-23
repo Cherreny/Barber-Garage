@@ -17,5 +17,5 @@ node_modules/
 
 # files needed for work
 _PSD/
-public/css
+public/
 dist/

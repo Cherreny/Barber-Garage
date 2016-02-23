@@ -1,3 +1,6 @@
+import $ from "jquery";
+import throttle from "lodash.throttle";
+
 $().ready(() => {
   const SCROLL_TOP_LIMIT = 25;
   let $navMain = $('.nav-main');
@@ -14,7 +17,7 @@ $().ready(() => {
   if ($navMain.data('nav-small')) {
     $navMain.addClass('nav-small');
   } else {
-    $(window).on('scroll', _.throttle(scrollHandler, 250));
+    $(window).on('scroll', throttle(scrollHandler, 250));
   }
 
   smoothScroll.init({
@@ -89,6 +92,6 @@ $().ready(() => {
   scrollSpy();
 
   $(window).on('resize', updateViewportHeight);
-  $(window).on('scroll', _.throttle(scrollSpy, 250));
+  $(window).on('scroll', throttle(scrollSpy, 250));
 
 });
