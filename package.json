@@ -7,13 +7,26 @@
     "url": "git://github.com/Cherreny/Barber-Garage.git"
   },
   "devDependencies": {
+    "babel-core": "6.3.26",
+    "babel-loader": "6.2.0",
     "babel-preset-es2015": "6.3.13",
+    "babel-preset-stage-0": "6.3.13",
+    "copy-webpack-plugin": "^1.1.1",
+    "css-loader": "0.23.1",
     "ejs": "2.3.4",
     "express": "4.13.3",
-    "http-server": "0.8.5"
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.8.4",
+    "jquery": "1.12.0",
+    "lodash.throttle": "4.0.1",
+    "node-sass": "3.4.2",
+    "sass-loader": "3.1.2",
+    "style-loader": "0.12.4",
+    "webpack": "1.12.6"
   },
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js | webpack --progress --watch --colors",
+    "build": "NODE_ENV=production webpack --progress --colors"
   }
 }
