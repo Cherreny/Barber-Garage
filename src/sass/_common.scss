@@ -24,6 +24,8 @@ ul {
   height: 100%
 }
 
-.embed-container iframe, .embed-container object, .embed-container embed {
-  width: 100%;
+.embed-container {
+  iframe, object, embed {
+    width: 100%;
+  }
 }
