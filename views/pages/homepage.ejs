@@ -128,10 +128,14 @@
     </ul>
   </nav>
   <main id="home" class="section intro">
-    <iframe src="https://player.vimeo.com/video/155022290?autoplay=1&loop=1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <div id="embed_container" class="embed-container">
+      <iframe src="https://player.vimeo.com/video/155022290?autoplay=1&loop=1" id="video"
+              frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+      </iframe>
+    </div>
   </main>
   <section id="barber" class="section barber">
-    <div>
+    <div class="section__inner">
       <img src="/img/barber_icon.png" alt="barber">
       <p>
         Barbershop to coś więcej niż miejsce w którym możesz przyjść na strzyżenie włosów, trymowanie brody czy też golenie zarostu brzytwą. Jest ośrodkiem mikrospołeczności mężczyzn, miejscem wymiany poglądów i spotkań towarzyskich&hellip;
@@ -145,7 +149,7 @@
     </div>
   </section>
   <section id="garage" class="section garage">
-    <div>
+    <div class="section__inner">
       <img src="/img/garage_icon.png" alt="garage">
       <p>
         Barber Garage to coś więcej niż barbershop. W naszym garażu na ulicy Modlińskiej znajdziesz pełen zakres usług związanych z szeroko pojętą mechaniką samochodową&hellip;
@@ -194,5 +198,5 @@
 </footer>
 <script src="/js/vendor/google_maps.js"></script>
 <script async defer
-        // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOR4C6Gv4EPmBrPX6L_BM08BDk8lo5rk&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOR4C6Gv4EPmBrPX6L_BM08BDk8lo5rk&callback=initMap">
 </script>
