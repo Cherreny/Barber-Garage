@@ -6,6 +6,8 @@ $().ready(() => {
   let $navMain = $('.nav-main');
   let $mobileNavToggleButton = $('.nav-toggle');
 
+  let IS_HOMEPAGE = $('html').hasClass('homepage');
+
   function scrollHandler() {
     if (window.scrollY > SCROLL_TOP_LIMIT) {
       $navMain.addClass('nav-small');
@@ -89,8 +91,6 @@ $().ready(() => {
     setActive($navLinks, $navLinks[$sectionsObject.indexOf(closestSection)]);
   }
 
-  scrollSpy();
-
   let container = $('#embed_container');
   let video = $('#video');
 
@@ -126,12 +126,16 @@ $().ready(() => {
     })
   }
 
-  resizeVideo();
-
-  $(window).on('resize', () => {
-    updateViewportHeight();
+  if (IS_HOMEPAGE) {
+    scrollSpy();
     resizeVideo();
-  });
+
+    $(window).on('resize', () => {
+      updateViewportHeight();
+      resizeVideo();
+    });
+  }
+
   $(window).on('scroll', throttle(scrollSpy, 250));
 
 });
