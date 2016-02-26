@@ -10,7 +10,7 @@
     position: relative;
   }
 
-  div {
+  .section__inner {
     @include fontWeight('light');
     color: $white;
     font-kerning: auto;

@@ -91,7 +91,47 @@ $().ready(() => {
 
   scrollSpy();
 
-  $(window).on('resize', updateViewportHeight);
+  let container = $('#embed_container');
+  let video = $('#video');
+
+  function resizeVideo() {
+    // this is taken form WP Alice theme
+    let o = {};
+    o.width = container.outerWidth(),
+    o.height = container.outerHeight();
+    let a = 24
+      , n = 100
+      , s = {}
+      , l = container.closest(".video-section-container").outerWidth()
+      , r = container.closest(".video-section-container").outerHeight();
+    container.width(l),
+    container.height(r),
+    s.width = o.width + o.width * a / 100,
+    s.height = Math.ceil(9 * o.width / 16),
+    s.marginTop = -((s.height - o.height) / 2),
+    s.marginLeft = -(o.width * (a / 2) / 100),
+    s.height < o.height && (s.height = o.height + o.height * a / 100,
+    s.width = Math.floor(16 * o.height / 9),
+    s.marginTop = -(o.height * (a / 2) / 100),
+    s.marginLeft = -((s.width - o.width) / 2)),
+    s.width += n,
+    s.height += n,
+    s.marginTop -= n / 2,
+    s.marginLeft -= n / 2,
+    video.css({
+        width: s.width,
+        height: s.height,
+        marginTop: s.marginTop,
+        marginLeft: s.marginLeft
+    })
+  }
+
+  resizeVideo();
+
+  $(window).on('resize', () => {
+    updateViewportHeight();
+    resizeVideo();
+  });
   $(window).on('scroll', throttle(scrollSpy, 250));
 
 });
