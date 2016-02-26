@@ -3,10 +3,11 @@ import throttle from "lodash.throttle";
 
 $().ready(() => {
   const SCROLL_TOP_LIMIT = 25;
+  const IS_HOMEPAGE = $('html').hasClass('homepage');
+
+  let $window = $(window);
   let $navMain = $('.nav-main');
   let $mobileNavToggleButton = $('.nav-toggle');
-
-  let IS_HOMEPAGE = $('html').hasClass('homepage');
 
   function scrollHandler() {
     if (window.scrollY > SCROLL_TOP_LIMIT) {
@@ -14,12 +15,6 @@ $().ready(() => {
     } else {
       $navMain.removeClass('nav-small');
     }
-  }
-
-  if ($navMain.data('nav-small')) {
-    $navMain.addClass('nav-small');
-  } else {
-    $(window).on('scroll', throttle(scrollHandler, 250));
   }
 
   smoothScroll.init({
@@ -129,13 +124,15 @@ $().ready(() => {
   if (IS_HOMEPAGE) {
     scrollSpy();
     resizeVideo();
+    scrollHandler();
 
-    $(window).on('resize', () => {
+    $window.on('resize', () => {
       updateViewportHeight();
       resizeVideo();
     });
-  }
 
-  $(window).on('scroll', throttle(scrollSpy, 250));
+    $window.on('scroll', throttle(scrollHandler, 250));
+    $window.on('scroll', throttle(scrollSpy, 250));
+  }
 
 });
