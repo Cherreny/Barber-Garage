@@ -6,6 +6,18 @@
   z-index: map-get($zindexes, $zindex);
 }
 
+@mixin landscape {
+  @media #{$landscape} {
+    @content
+  }
+};
+
+@mixin portrait {
+  @media #{$portrait} {
+    @content
+  }
+};
+
 /*
   responsive mixins
   {down}

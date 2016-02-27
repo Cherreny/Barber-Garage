@@ -7,6 +7,9 @@ $breakpoint-desktop-extralarge: 1920px;
 
 $screen: "only screen";
 
+$landscape: "(max-width: #{$breakpoint-tablet}) and (orientation: landscape)";
+$portrait: "(max-width: #{$breakpoint-tablet}) and (orientation: portrait)"; 
+
 $phone-down: "#{$screen} and (max-width: #{$breakpoint-phone - 1})";
 $tablet-down: "#{$screen} and (max-width: #{$breakpoint-tablet - 1})";
 $tablet-large-down: "#{$screen} and (max-width: #{$breakpoint-tablet-large - 1})";

@@ -7,10 +7,6 @@ var path = require('path');
 
 var pages = require('./pages');
 
-var data = {
-  
-};
-
 var timestamp = new Date().getTime();
 
 var app = express();
@@ -26,7 +22,8 @@ app.use('/', express.static('public'));
 pages.forEach(page => {
   app.get(page.uri, (req, res) => {
     res.render('layout', {
-      content: getPageContent(path.join('pages', page.pageName), data[page.data])
+      content: getPageContent(path.join('pages', page.pageName)),
+      data: page
     });
   });
 });
@@ -37,7 +34,7 @@ app.get('/build', (req, res) => {
     var stream = fs.createWriteStream(fileName);
 
     stream.once('open', fd => {
-      var html = buildHtml(page.pageName, data[page.data]);
+      var html = buildHtml(page.pageName, page);
       stream.end(html);
     });
   });
@@ -49,11 +46,13 @@ app.listen(8080);
 console.log('server is running on localhost:8080');
 
 function getPageContent(fileName, data) {
-  return ejs.render(fs.readFileSync(path.join('views', fileName), 'utf-8'), {data: data, timestamp: timestamp});
+  return ejs.render(fs.readFileSync(path.join('views', fileName), 'utf-8'), {
+    data: data
+  });
 }
 
 function buildHtml(pageName, data) {
-  return getPageContent('partials/head.ejs') +
+  return getPageContent('partials/head.ejs', data) +
          getPageContent(path.join('pages', pageName), data) +
-         getPageContent('partials/footer.ejs');
+         getPageContent('partials/footer.ejs', data);
 }

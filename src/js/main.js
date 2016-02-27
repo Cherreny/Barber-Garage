@@ -3,10 +3,11 @@ import throttle from "lodash.throttle";
 
 $().ready(() => {
   const SCROLL_TOP_LIMIT = 25;
+  const IS_HOMEPAGE = $('html').hasClass('homepage');
+
+  let $window = $(window);
   let $navMain = $('.nav-main');
   let $mobileNavToggleButton = $('.nav-toggle');
-
-  let IS_HOMEPAGE = $('html').hasClass('homepage');
 
   function scrollHandler() {
     if (window.scrollY > SCROLL_TOP_LIMIT) {
@@ -14,12 +15,6 @@ $().ready(() => {
     } else {
       $navMain.removeClass('nav-small');
     }
-  }
-
-  if ($navMain.data('nav-small')) {
-    $navMain.addClass('nav-small');
-  } else {
-    $(window).on('scroll', throttle(scrollHandler, 250));
   }
 
   smoothScroll.init({
@@ -96,14 +91,15 @@ $().ready(() => {
 
   function resizeVideo() {
     // this is taken form WP Alice theme
-    let o = {};
-    o.width = container.outerWidth(),
-    o.height = container.outerHeight();
-    let a = 24
-      , n = 100
-      , s = {}
-      , l = container.closest(".video-section-container").outerWidth()
-      , r = container.closest(".video-section-container").outerHeight();
+    let o = {
+      width: container.outerWidth(),
+      height: container.outerHeight()
+    };
+    let a = 24;
+    let n = 100;
+    let s = {};
+    let l = container.closest(".video-section-container").outerWidth();
+    let r = container.closest(".video-section-container").outerHeight();
     container.width(l),
     container.height(r),
     s.width = o.width + o.width * a / 100,
@@ -129,13 +125,17 @@ $().ready(() => {
   if (IS_HOMEPAGE) {
     scrollSpy();
     resizeVideo();
+    scrollHandler();
 
-    $(window).on('resize', () => {
+    $window.on('resize', () => {
       updateViewportHeight();
       resizeVideo();
     });
-  }
 
-  $(window).on('scroll', throttle(scrollSpy, 250));
+    $window.on('scroll', () => {
+      throttle(scrollHandler, 250)();
+      throttle(scrollSpy, 250)();
+    });
+  }
 
 });
