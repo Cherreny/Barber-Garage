@@ -36,7 +36,7 @@ pages.forEach(page => {
     });
   });
 
-  app.get('/en/' + page.uri, (req, res) => {
+  app.get('/en' + page.uri, (req, res) => {
     Object.assign(page, {
       language: 'en',
       locales: locales.en
@@ -67,7 +67,6 @@ app.listen(8080);
 console.log('server is running on localhost:8080');
 
 function getPageContent(fileName, data) {
-  console.log(data);
   return ejs.render(fs.readFileSync(path.join('views', fileName), 'utf-8'), {
     data: data
   });
