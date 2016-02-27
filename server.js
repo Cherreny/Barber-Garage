@@ -6,6 +6,10 @@ var fs = require('fs');
 var path = require('path');
 
 var pages = require('./pages');
+var locales = {
+  pl: require('./locales/pl/locales'),
+  en: require('./locales/en/locales')
+};
 
 var timestamp = new Date().getTime();
 
@@ -21,8 +25,43 @@ app.use('/', express.static('public'));
 // loop for default uris
 pages.forEach(page => {
   app.get(page.uri, (req, res) => {
+    Object.assign(page, {
+      language: 'pl',
+      locales: locales.pl,
+      urls: {
+        homepage: '/',
+        barber: '/barber',
+        garage: '/garage',
+        current: {
+          pl: page.uri,
+          en: '/en' + page.uri
+        }
+      }
+    });
+
     res.render('layout', {
-      content: getPageContent(path.join('pages', page.pageName)),
+      content: getPageContent(path.join('pages', page.pageName), page),
+      data: page
+    });
+  });
+
+  app.get('/en' + page.uri, (req, res) => {
+    Object.assign(page, {
+      language: 'en',
+      locales: locales.en,
+      urls: {
+        homepage: '/en',
+        barber: '/en/barber',
+        garage: '/en/garage',
+        current: {
+          pl: page.uri,
+          en: '/en' + page.uri
+        }
+      }
+    });
+
+    res.render('layout', {
+      content: getPageContent(path.join('pages', page.pageName), page),
       data: page
     });
   });
