@@ -6,6 +6,10 @@ var fs = require('fs');
 var path = require('path');
 
 var pages = require('./pages');
+var locales = {
+  pl: require('./locales/pl/locales'),
+  en: require('./locales/en/locales')
+};
 
 var timestamp = new Date().getTime();
 
@@ -21,8 +25,25 @@ app.use('/', express.static('public'));
 // loop for default uris
 pages.forEach(page => {
   app.get(page.uri, (req, res) => {
+    Object.assign(page, {
+      language: 'pl',
+      locales: locales.pl
+    });
+
     res.render('layout', {
-      content: getPageContent(path.join('pages', page.pageName)),
+      content: getPageContent(path.join('pages', page.pageName), page),
+      data: page
+    });
+  });
+
+  app.get(path.join('/en/', page.uri), (req, res) => {
+    Object.assign(page, {
+      language: 'en',
+      locales: locales.en
+    });
+
+    res.render('layout', {
+      content: getPageContent(path.join('pages', page.pageName), page),
       data: page
     });
   });
@@ -46,6 +67,7 @@ app.listen(8080);
 console.log('server is running on localhost:8080');
 
 function getPageContent(fileName, data) {
+  console.log(data);
   return ejs.render(fs.readFileSync(path.join('views', fileName), 'utf-8'), {
     data: data
   });

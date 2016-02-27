@@ -21,7 +21,7 @@
     <ul class="nav-list">
       <li class="nav-tel">
         <a href="https://booksy.net/pl-pl/2316_barber-garage_barberzy_3_warszawa" target="_blank">
-          REZERWUJ
+          <%- data.locales.reservations %>
         </a>
       </li>
       <li class="nav-tel">
@@ -48,12 +48,12 @@
         </a>
       </li>
       <li class="nav-lang">
-        <a href="#" class="active">
+        <a href="/" class="<%if (typeof data.language !== 'undefined' && data.language === 'pl'){ %>active<%}%>">
           PL
         </a>
       </li>
       <li class="nav-lang">
-        <a href="#">
+        <a href="/en/" class="<%if (typeof data.language !== 'undefined' && data.language === 'en'){ %>active<%}%>">
           EN
         </a>
       </li>
@@ -73,10 +73,10 @@
         </a>
       </div>
       <div class="nav-lang">
-        <a href="#" class="active">
+        <a href="/" class="<%if (typeof data.language !== 'undefined' && data.language === 'pl'){ %>active<%}%>">
           PL
         </a>
-        <a href="#">
+        <a href="/en/" class="<%if (typeof data.language !== 'undefined' && data.language === 'en'){ %>active<%}%>">
           EN
         </a>
       </div>
@@ -85,10 +85,10 @@
           Barber
         </a>
         <a href="/garage">
-          Garaż
+          Garage
         </a>
         <a href="https://booksy.net/pl-pl/2316_barber-garage_barberzy_3_warszawa" target="_blank">
-          rezerwuj
+          <%- data.locales.reservations %>
         </a>
       </div>
       <div class="nav-contact">

@@ -33,14 +33,14 @@
     <div class="section__inner">
       <img src="/img/barber_icon.png" alt="barber">
       <p>
-        Barbershop to coś więcej niż miejsce w którym możesz przyjść na strzyżenie włosów, trymowanie brody czy też golenie zarostu brzytwą. Jest ośrodkiem mikrospołeczności mężczyzn, miejscem wymiany poglądów i spotkań towarzyskich&hellip;
+        <%- data.locales.homepage.barber %>
       </p>
       <a href="https://booksy.net/pl-pl/2316_barber-garage_barberzy_3_warszawa"
          target="_blank"
          class="button-reservation">
-           Rezerwuj
+           <%- data.locales.reservations %>
        </a>
-      <a class="link-read-more" href="/barber">dowiedz się więcej</a>
+      <a class="link-read-more" href="/barber"><%- data.locales['read more'] %></a>
     </div>
   </section>
   <section id="garage" class="section garage">
@@ -78,7 +78,7 @@
       <li>
         <img class="contact-logo-img" src="/img/garage_map_icon_small.png" alt="Garage Logo">
         <address class="contact-address">
-          <h1>Garaż</h1>
+          <h1>Garage</h1>
           <div class="contact-info">
             ul. Modlińska 41<br />
             03-199 Warszawa
