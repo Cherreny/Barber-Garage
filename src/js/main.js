@@ -91,14 +91,15 @@ $().ready(() => {
 
   function resizeVideo() {
     // this is taken form WP Alice theme
-    let o = {};
-    o.width = container.outerWidth(),
-    o.height = container.outerHeight();
-    let a = 24
-      , n = 100
-      , s = {}
-      , l = container.closest(".video-section-container").outerWidth()
-      , r = container.closest(".video-section-container").outerHeight();
+    let o = {
+      width: container.outerWidth(),
+      height: container.outerHeight()
+    };
+    let a = 24;
+    let n = 100;
+    let s = {};
+    let l = container.closest(".video-section-container").outerWidth();
+    let r = container.closest(".video-section-container").outerHeight();
     container.width(l),
     container.height(r),
     s.width = o.width + o.width * a / 100,
@@ -131,8 +132,10 @@ $().ready(() => {
       resizeVideo();
     });
 
-    $window.on('scroll', throttle(scrollHandler, 250));
-    $window.on('scroll', throttle(scrollSpy, 250));
+    $window.on('scroll', () => {
+      throttle(scrollHandler, 250)();
+      throttle(scrollSpy, 250)();
+    });
   }
 
 });
