@@ -40,7 +40,7 @@
          class="button-reservation">
            <%- data.locales.reservations %>
        </a>
-      <a class="link-read-more" href="/barber"><%- data.locales['read more'] %></a>
+      <a class="link-read-more" href="<%= data.urls.barber %>"><%- data.locales['read more'] %></a>
     </div>
   </section>
   <section id="garage" class="section garage">
@@ -49,7 +49,7 @@
       <p>
         <%- data.locales.homepage.garage %>
       </p>
-      <a href="/garage"><%- data.locales['read more'] %></a>
+      <a href="<%= data.urls.garage %>"><%- data.locales['read more'] %></a>
     </div>
   </section>
 </div>

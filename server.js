@@ -27,7 +27,16 @@ pages.forEach(page => {
   app.get(page.uri, (req, res) => {
     Object.assign(page, {
       language: 'pl',
-      locales: locales.pl
+      locales: locales.pl,
+      urls: {
+        homepage: '/',
+        barber: '/barber',
+        garage: '/garage',
+        current: {
+          pl: page.uri,
+          en: '/en' + page.uri
+        }
+      }
     });
 
     res.render('layout', {
@@ -39,7 +48,16 @@ pages.forEach(page => {
   app.get('/en' + page.uri, (req, res) => {
     Object.assign(page, {
       language: 'en',
-      locales: locales.en
+      locales: locales.en,
+      urls: {
+        homepage: '/en',
+        barber: '/en/barber',
+        garage: '/en/garage',
+        current: {
+          pl: page.uri,
+          en: '/en' + page.uri
+        }
+      }
     });
 
     res.render('layout', {
