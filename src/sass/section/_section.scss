@@ -10,6 +10,11 @@
     position: relative;
   }
 
+  @include landscape() {
+    height: auto;
+    overflow: hidden;
+  }
+
   .section__inner {
     @include fontWeight('light');
     color: $white;
@@ -29,7 +34,13 @@
 
     @include tablet-down() {
       font-size: 14px;
+      line-height: 1.6em;
+    }
 
+    @include portrait() {
+      img {
+        width: 75%;
+      }
     }
 
     p {
@@ -93,11 +104,23 @@
           }
         }
       }
+
+      @include landscape() {
+        position: relative;
+
+        &.link-read-more {
+          left: 0;
+        }
+      }
     }
   }
 
   &.intro {
     background-image: url("/img/section1_bg.jpg");
+
+    @include landscape() {
+      height: 100%;
+    }
 
     iframe {
       height: 100%;
