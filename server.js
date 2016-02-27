@@ -36,7 +36,7 @@ pages.forEach(page => {
     });
   });
 
-  app.get(path.join('/en/', page.uri), (req, res) => {
+  app.get('/en/' + page.uri, (req, res) => {
     Object.assign(page, {
       language: 'en',
       locales: locales.en
