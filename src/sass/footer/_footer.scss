@@ -9,10 +9,11 @@
   background-color: $nav-background;
   overflow: hidden;
 
-  @include tablet-large-down() {
+  @include portrait() {
     display: flex;
     flex-direction: column-reverse;
     height: 100%;
+    justify-content: space-between;
   }
 
   #map {
@@ -22,7 +23,7 @@
     overflow: hidden;
     width: 50%;
 
-    @include tablet-large-down() {
+    @include portrait() {
       display: flex;
       height: 45%;
       width: 100%;
@@ -54,9 +55,14 @@
       list-style: none;
       height: inherit;
       overflow: hidden;
+      padding-top: 50px;
 
       @include tablet-large-down() {
         width: 100%;
+      }
+
+      @include phone-down() {
+        padding-top: 15px;
       }
 
       li {
@@ -67,6 +73,11 @@
 
         @include desktop-large-down() {
           height: ($footer-height-desktop/2) - $footer-margin-desktop;
+        }
+
+        @include phone-down() {
+          margin: 0;
+          height: auto;
         }
 
         &:after {
@@ -96,6 +107,14 @@
     .contact-logo-img {
       float: left;
       width: $logo-width;
+
+      @include tablet-large-down() {
+        width: 90px;
+      }
+
+      @include phone-down() {
+        width: 60px;
+      }
     }
 
     .contact-address {
@@ -103,6 +122,12 @@
       font-style: normal;
       letter-spacing: 0.1em;
       margin-left: $footer-margin-desktop-large-up;
+
+      @include phone-down() {
+        float: none;
+        margin-left: 75px;
+        margin-bottom: 20px;
+      }
 
       h1 {
         @include fontWeight('medium');
@@ -113,6 +138,11 @@
         @include desktop-large-down() {
           font-size: 12px;
         }
+
+        @include phone-down() {
+          font-size: 10px;
+          margin-bottom: 7px;
+        }
       }
 
       .contact-info {
@@ -122,6 +152,11 @@
 
         @include desktop-large-down() {
           font-size: 12px;
+        }
+
+        @include phone-down() {
+          font-size: 10px;
+          margin: 0 0 10px 20px;
         }
 
         &--strong {
