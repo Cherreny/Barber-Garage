@@ -122,6 +122,20 @@ $().ready(() => {
     })
   }
 
+  function updateSubpageHeight() {
+    let $subpageContentHeight = $('.subpage').children().outerHeight();
+    let $html = $('html');
+    let windowInnerHeight = window.innerHeight;
+
+    if ($html.height() < windowInnerHeight) {
+      $html.height(windowInnerHeight);
+    } else if (windowInnerHeight < $subpageContentHeight) {
+      $html.height($subpageContentHeight);
+    } else if (windowInnerHeight < $html.height()) {
+      $html.height(windowInnerHeight);
+    }
+  }
+
   if (IS_HOMEPAGE) {
     scrollSpy();
     resizeVideo();
@@ -136,6 +150,10 @@ $().ready(() => {
       throttle(scrollHandler, 250)();
       throttle(scrollSpy, 250)();
     });
+  } else {
+    updateSubpageHeight();
+
+    $window.on('resize', throttle(updateSubpageHeight, 200));
   }
 
 });
