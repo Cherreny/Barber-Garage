@@ -100,7 +100,9 @@
           height: 60px;
 
           @include phone-down() {
-            left: 170px;
+            height: 48px;
+            line-height: 48px;
+            left: 220px;
           }
         }
       }
