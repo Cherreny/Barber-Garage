@@ -69,6 +69,23 @@ pages.forEach(page => {
 
 app.get('/build', (req, res) => {
   pages.forEach(page => {
+    Object.assign(page, {
+      language: 'pl',
+      locales: locales.pl,
+      urls: {
+        homepage: '/',
+        barber: '/barber',
+        garage: '/garage',
+        current: {
+          pl: page.uri,
+          en: '/en' + page.uri
+        },
+      },
+      timestamp: timestamp
+    });
+
+    console.log(page);
+
     var fileName = path.join(distPath, page.fileName);
     var stream = fs.createWriteStream(fileName);
 
@@ -79,6 +96,35 @@ app.get('/build', (req, res) => {
   });
 
   res.send('build succeeded');
+});
+
+app.get('/build_en', (req, res) => {
+  pages.forEach(page => {
+    Object.assign(page, {
+      language: 'en',
+      locales: locales.en,
+      urls: {
+        homepage: '/en',
+        barber: '/en/barber',
+        garage: '/en/garage',
+        current: {
+          pl: page.uri,
+          en: '/en' + page.uri
+        },
+      },
+      timestamp: timestamp
+    });
+
+    var fileName = path.join(path.join(distPath, 'en'), page.fileName);
+    var stream = fs.createWriteStream(fileName);
+
+    stream.once('open', fd => {
+      var html = buildHtml(page.pageName, page);
+      stream.end(html);
+    });
+  });
+
+  res.send('build english succeeded');
 });
 
 app.listen(8080);

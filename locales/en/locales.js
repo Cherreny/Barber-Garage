@@ -20,7 +20,7 @@ module.exports = {
     </tr>
     <tr>
       <td>
-        haircut - <strong>YOUNG BOYS </strong>(do 12 lat)
+        haircut - <strong>YOUNG BOYS </strong>(up to 12 years)
       </td>
       <td>
         <strong>50,-</strong>
