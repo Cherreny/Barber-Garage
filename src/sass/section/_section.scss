@@ -124,11 +124,44 @@
       height: 100%;
     }
 
-    #intro-btn-volume {
-      bottom: 5%;
-      left: 5%;
+    .intro-btn-volume {
+      background: transparent;
+      border: none;
+      bottom: 20px;
+      color: $white;
+      display: none;
+      font-size: 26px;
+      left: 20px;
       position: absolute;
-      z-index: 1000;
+      @include zindex('introBtnVolume');
+
+      &:focus {
+        outline: none;
+      }
+
+      .icon-volume-off {
+        bottom: 1px;
+        position: relative;
+        right: 3px;
+      }
+
+      &:not(.intro-btn-volume--muted) {
+        .icon-volume-high {
+          display: block;
+        }
+        .icon-volume-off {
+          display: none;
+        }
+      }
+
+      &--muted {
+        .icon-volume-high {
+          display: none;
+        }
+        .icon-volume-off {
+          display: block;
+        }
+      }
     }
 
     iframe {

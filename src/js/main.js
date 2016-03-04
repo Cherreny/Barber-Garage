@@ -83,6 +83,10 @@ $().ready(() => {
              getDistance(curr.$jqueryObj, currentSpecificGravity) ? prev : curr;
     });
 
+    if ($sectionsObject.indexOf(closestSection) > 0) {
+      vimeo().mute();
+    }
+
     setActive($navLinks, $navLinks[$sectionsObject.indexOf(closestSection)]);
   }
 
@@ -136,23 +140,43 @@ $().ready(() => {
     }
   }
 
-  function initVimeoApi() {
+  let vimeo = function() {
     let player = $f($('#video')[0]);
-    let $btnVolume = $('#intro-btn-volume');
+    let $btnVolume = $('.intro-btn-volume');
     let volume = 0;
 
-    player.addEvent('ready', () => {
-      player.api('setVolume', volume);
-    });
+    function init() {
+      player.addEvent('ready', () => {
+        $btnVolume.show(500);
+        player.api('setVolume', volume);
+      });
 
-    $btnVolume.on('click', () => {
-      volume = volume ? 0 : 1;
+      $btnVolume.on('click', () => {
+        $btnVolume[volume ? 'addClass' : 'removeClass']('intro-btn-volume--muted');
+        volume = volume ? 0 : 1;
+        player.api('setVolume', volume);
+      });
+    }
+
+    function getVolume() {
+      return volume;
+    }
+
+    function mute() {
+      $btnVolume.addClass('intro-btn-volume--muted');
+      volume = 0;
       player.api('setVolume', volume);
-    });
-  }
+    }
+
+    return {
+      init: init,
+      getVolume: getVolume,
+      mute: mute
+    };
+  };
 
   if (IS_HOMEPAGE) {
-    initVimeoApi();
+    vimeo().init();
     scrollSpy();
     resizeVideo();
     scrollHandler();

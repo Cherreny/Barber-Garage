@@ -22,9 +22,14 @@ module.exports = {
           presets: ['es2015']
         },
         exclude: /node_modules/
-      },{
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css!sass')
+      },
+      {
+        test   : /\.(ttf|eot|svg|woff)(\?[a-z0-9]+)?$/,
+        loader : 'file-loader'
       }
     ]
   },
@@ -37,6 +42,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: 'img', to: 'img' },
+      { from: 'font', to: 'font' },
       { from: 'vendor', to: 'js/vendor' }
     ])
   ]
