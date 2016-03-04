@@ -57,6 +57,10 @@
       overflow: hidden;
       padding-top: 50px;
 
+      @include desktop-large-down() {
+        padding-top: 25px;
+      }
+
       @include tablet-large-down() {
         width: 100%;
       }

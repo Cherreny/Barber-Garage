@@ -124,6 +124,13 @@
       height: 100%;
     }
 
+    #intro-btn-volume {
+      bottom: 5%;
+      left: 5%;
+      position: absolute;
+      z-index: 1000;
+    }
+
     iframe {
       height: 100%;
       width: 100%;

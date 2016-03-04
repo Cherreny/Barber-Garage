@@ -186,7 +186,7 @@ function initMap() {
     {
       name: 'garage',
       imgSrc: '/img/marker_garage_small.png',
-      latLng: new google.maps.LatLng(52.232497, 20.977438)
+      latLng: new google.maps.LatLng(52.305340, 20.985659)
     }
   ];
 

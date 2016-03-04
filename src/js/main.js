@@ -136,7 +136,23 @@ $().ready(() => {
     }
   }
 
+  function initVimeoApi() {
+    let player = $f($('#video')[0]);
+    let $btnVolume = $('#intro-btn-volume');
+    let volume = 0;
+
+    player.addEvent('ready', () => {
+      player.api('setVolume', volume);
+    });
+
+    $btnVolume.on('click', () => {
+      volume = volume ? 0 : 1;
+      player.api('setVolume', volume);
+    });
+  }
+
   if (IS_HOMEPAGE) {
+    initVimeoApi();
     scrollSpy();
     resizeVideo();
     scrollHandler();
