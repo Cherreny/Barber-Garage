@@ -16,6 +16,14 @@
     justify-content: space-between;
   }
 
+  @include landscape() {
+    @include phone-down() {
+      max-height: 80%;
+    }
+  }
+
+
+
   #map {
     background-color: #ffffff;
     float: left;
@@ -65,9 +73,15 @@
         width: 100%;
       }
 
-      @include phone-down() {
-        padding-top: 15px;
+      @include tablet-large-down() {
+        padding-top: 25px;
+
+        @include phone-down() {
+          padding-top: 15px;
+        }
       }
+
+
 
       li {
         height: ($footer-height-desktop-large-up/2) - $footer-margin-desktop-large-up;
@@ -77,6 +91,10 @@
 
         @include desktop-large-down() {
           height: ($footer-height-desktop/2) - $footer-margin-desktop;
+        }
+        @include tablet-down() {
+          margin: 30px;
+          height: auto;
         }
 
         @include phone-down() {
@@ -92,7 +110,13 @@
           left: $footer-margin-desktop-large-up + $logo-width + $footer-margin-desktop-large-up;
           position: absolute;
           width: 80px;
+
+          @include tablet-down() {
+            left: 60%;
+          }
         }
+
+
 
         &:first-of-type {
           margin-top: $footer-margin-desktop-large-up;
@@ -116,6 +140,10 @@
         width: 90px;
       }
 
+      @include tablet-down() {
+        width: 70px;
+      }
+
       @include phone-down() {
         width: 60px;
       }
@@ -127,10 +155,14 @@
       letter-spacing: 0.1em;
       margin-left: $footer-margin-desktop-large-up;
 
-      @include phone-down() {
+      @include tablet-down() {
         float: none;
-        margin-left: 75px;
+        margin-left: 85px;
         margin-bottom: 20px;
+      }
+
+      @include phone-down() {
+        margin-left: 75px;
       }
 
       h1 {
@@ -156,6 +188,11 @@
 
         @include desktop-large-down() {
           font-size: 12px;
+        }
+
+        @include landscape() {
+          font-size: 10px;
+          margin: 0 0 10px 20px;
         }
 
         @include phone-down() {
