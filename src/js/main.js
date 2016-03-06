@@ -142,13 +142,26 @@ $().ready(() => {
 
   let vimeo = function() {
     let player = $f($('#video')[0]);
+    let $btnPlay = $('.intro-btn-play');
     let $btnVolume = $('.intro-btn-volume');
+    let playing = true;
     let volume = 0;
 
     function init() {
       player.addEvent('ready', () => {
+        $btnPlay.show(500);
         $btnVolume.show(500);
         player.api('setVolume', volume);
+      });
+
+      $btnPlay.on('click', () => {
+        $btnPlay[playing ? 'removeClass' : 'addClass']('intro-btn-play--playing');
+        if (playing) {
+          player.api('pause');
+        } else {
+          player.api('play');
+        }
+        playing = !playing;
       });
 
       $btnVolume.on('click', () => {

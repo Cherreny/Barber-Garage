@@ -124,20 +124,45 @@
       height: 100%;
     }
 
-    .intro-btn-volume {
+    .intro-btn-play, .intro-btn-volume {
       background: transparent;
       border: none;
       bottom: 20px;
       color: $white;
       display: none;
       font-size: 26px;
-      left: 20px;
       position: absolute;
       @include zindex('introBtnVolume');
 
       &:focus {
         outline: none;
       }
+    }
+
+    .intro-btn-play {
+      left: 20px;
+
+      &:not(.intro-btn-play--playing) {
+        .icon-play-outline {
+          display: block;
+        }
+        .icon-pause-outline {
+          display: none;
+        }
+      }
+
+      &--playing {
+        .icon-play-outline {
+          display: none;
+        }
+        .icon-pause-outline {
+          display: block;
+        }
+      }
+    }
+
+    .intro-btn-volume {
+      left: 60px;
 
       .icon-volume-off {
         bottom: 1px;
