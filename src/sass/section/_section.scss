@@ -90,10 +90,6 @@
           bottom: 5%;
         }
 
-        &.button-reservation {
-
-        }
-
         &.link-read-more {
           left: 200px;
           line-height: 60px;
@@ -112,6 +108,19 @@
 
         &.link-read-more {
           left: 0;
+        }
+      }
+    }
+    @include tablet-down() {
+      @include portrait() {
+        a {
+          position: static;
+          display: inline-block;
+          margin-bottom: 20px;
+        }
+
+        p {
+          margin: 30px 0;
         }
       }
     }
@@ -208,5 +217,21 @@
     background-position: left, center;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
+
+    @include tablet-down() {
+      @include portrait() {
+        .section__inner {
+          padding-top: 40px;
+        }
+      }
+    }
+
+    @include tablet-large-down() {
+      @include portrait() {
+        .section__inner {
+          padding-top: 150px;
+        }
+      }
+    }
   }
 }
