@@ -1,5 +1,6 @@
-import $ from "jquery";
-import throttle from "lodash.throttle";
+import $ from 'jquery';
+import throttle from 'lodash.throttle';
+import MobileDetect from 'mobile-detect';
 
 $().ready(() => {
   const SCROLL_TOP_LIMIT = 25;
@@ -16,6 +17,9 @@ $().ready(() => {
       $navMain.removeClass('nav-small');
     }
   }
+
+  let md = new MobileDetect(window.navigator.userAgent);
+  let isMobile = !!md.mobile();
 
   smoothScroll.init({
     selector: '[data-scroll]', // Selector for links (must be a valid CSS selector)
@@ -90,22 +94,22 @@ $().ready(() => {
     setActive($navLinks, $navLinks[$sectionsObject.indexOf(closestSection)]);
   }
 
-  let container = $('#embed_container');
-  let video = $('#video');
+  let videoContainer = $('#embed_container');
+  let video = null;
 
   function resizeVideo() {
     // this is taken form WP Alice theme
     let o = {
-      width: container.outerWidth(),
-      height: container.outerHeight()
+      width: videoContainer.outerWidth(),
+      height: videoContainer.outerHeight()
     };
     let a = 24;
     let n = 100;
     let s = {};
-    let l = container.closest(".video-section-container").outerWidth();
-    let r = container.closest(".video-section-container").outerHeight();
-    container.width(l),
-    container.height(r),
+    let l = videoContainer.closest(".video-section-container").outerWidth();
+    let r = videoContainer.closest(".video-section-container").outerHeight();
+    videoContainer.width(l),
+    videoContainer.height(r),
     s.width = o.width + o.width * a / 100,
     s.height = Math.ceil(9 * o.width / 16),
     s.marginTop = -((s.height - o.height) / 2),
@@ -149,9 +153,11 @@ $().ready(() => {
 
     function init() {
       player.addEvent('ready', () => {
-        $btnPlay.show(500);
-        $btnVolume.show(500);
-        player.api('setVolume', volume);
+        if (isMobile === false) {
+          $btnPlay.show(500);
+          $btnVolume.show(500);
+          player.api('setVolume', volume);
+        }
       });
 
       $btnPlay.on('click', () => {
@@ -188,7 +194,29 @@ $().ready(() => {
     };
   };
 
+  function addIframe() {
+    // vimeo player doesn't work on mobile with added `background` parameter
+    // so we check if the client is mobile device and then serve vimeo player
+    // without `background` parameter
+    let params = isMobile ?
+        '?api=1&autoplay=1&loop=1&player_id=video'
+      : '?api=1&background=1&autoplay=1&loop=1&player_id=video'
+
+    let iframe = $('<iframe />');
+    iframe.attr({
+      id: 'video',
+      frameborder: 0,
+      webkitAllowFullScreen: true,
+      mozallowfullscreen: true,
+      allowFullScreen: true,
+      src: 'https://player.vimeo.com/video/155022290' + params
+    });
+    videoContainer.append(iframe);
+    video = $('#video');
+  }
+
   if (IS_HOMEPAGE) {
+    addIframe();
     vimeo().init();
     scrollSpy();
     resizeVideo();
