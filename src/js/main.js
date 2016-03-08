@@ -65,10 +65,6 @@ $().ready(() => {
   });
 
   function getViewportHeight() {
-    return typeof viewportHeight === 'undefined' ? updateViewportHeight() : viewportHeight;
-  }
-
-  function updateViewportHeight() {
     return document.documentElement.clientHeight;
   }
 
@@ -215,15 +211,25 @@ $().ready(() => {
     video = $('#video');
   }
 
+  function setIntroHeight() {
+    let $home = $('#home');
+    let viewportHeight = getViewportHeight();
+
+    if ($home.height() !== viewportHeight) {
+      $home.height(viewportHeight);
+    }
+  }
+
   if (IS_HOMEPAGE) {
     addIframe();
     vimeo().init();
+    setIntroHeight();
     scrollSpy();
     resizeVideo();
     scrollHandler();
 
     $window.on('resize', () => {
-      updateViewportHeight();
+      setIntroHeight();
       resizeVideo();
     });
 

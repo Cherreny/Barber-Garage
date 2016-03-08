@@ -13,6 +13,12 @@
   @include landscape() {
     height: auto;
     overflow: hidden;
+    padding-bottom: 40px;
+  }
+
+  @include phone-down() {
+    height: auto;
+    padding-bottom: 40px;
   }
 
   .section__inner {
@@ -129,10 +135,6 @@
   &.intro {
     background-image: url("/img/section1_bg.jpg");
 
-    @include landscape() {
-      height: 100%;
-    }
-
     .intro-btn-play, .intro-btn-volume {
       background: transparent;
       border: none;
@@ -147,6 +149,8 @@
         outline: none;
       }
     }
+
+    padding-bottom: 0;
 
     .intro-btn-play {
       left: 20px;

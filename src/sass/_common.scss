@@ -19,6 +19,10 @@ ul {
   @include landscape() {
     height: auto;
   }
+
+  @include phone-down() {
+    height: auto;
+  }
 }
 
 .embed-container {
