@@ -52,7 +52,7 @@ module.exports = {
     </tr>
     <tr>
       <td>
-        trymowanie brody <strong>MASZYNKA</strong>
+        trymowanie brody <strong>MASZYNKĄ</strong>
       </td>
       <td>
         <strong>40,-</strong>
@@ -91,7 +91,7 @@ module.exports = {
       </td>
     </tr>
   </table>`,
-  garage: 'Barber Garage to coś więcej niż barbershop. W naszym garażu na ulicy Modlińskiej znajdziesz pełen zakres usług związanych z szeroko pojętą mechaniką samochodową. Dodatkowo na specjalne zamówienie kienta składamy stylowe rowery, które charakteryzują sie wyglądem motocykli z początku XX wieku. Ponad to nasi mechanicy zajmują się przebótową klasycznych motocykli na styl boober, cafe racer oraz renowacją starych motocykli.',
+  garage: 'Barber Garage to coś więcej niż barbershop. W naszym garażu na ulicy Modlińskiej znajdziesz pełen zakres usług związanych z szeroko pojętą mechaniką samochodową. Dodatkowo na specjalne zamówienie kienta składamy stylowe rowery, które charakteryzują sie wyglądem motocykli z początku XX wieku. Ponadto nasi mechanicy zajmują się przebudową klasycznych motocykli na styl boober, cafe racer oraz renowacją starych motocykli.',
   footer: {
     open: 'pon - pt 12.00 - 20.00<br/>so 10.00 - 16.00'
   },
